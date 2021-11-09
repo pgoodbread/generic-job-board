@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Offene Todos
+
+- Daten schön anzeigen
+- Form für Kaufen (inkl. Stripe API)
+- Feedback dingens
+- Email einsammeln (+ Bestätigungsemail)
+
 ## Getting Started
 
 First, run the development server:

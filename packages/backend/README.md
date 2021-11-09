@@ -5,4 +5,5 @@ Run docker mongo
 
 ## Offene Punkte
 
+- Testing für den RSS Parser
 - Bilder runterladen?
