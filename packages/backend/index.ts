@@ -1,11 +1,11 @@
-import fetch from "node-fetch";
 import parser from "fast-xml-parser";
 import { MongoClient } from "mongodb";
+import fetch from "node-fetch";
 
 type RssResponse = {
   rss: {
     channel: {
-      item: Item[];
+      item: BaseItem[];
     };
   };
 };
@@ -19,10 +19,6 @@ type Job = {
   tags: string[];
   location: string;
   link: string;
-};
-
-type Item = BaseItem & {
-  _id: number;
 };
 
 type BaseItem = {
@@ -51,11 +47,11 @@ async function run() {
     },
   }).then((x) => x.text());
 
-  const jsonObj = parser.parse(text) as RssResponse;
+  const jsonObj: RssResponse = parser.parse(text);
 
   console.log(jsonObj.rss.channel.item);
 
-  const jobs: Job[] = jsonObj.rss.channel.item.map((item: Item) => {
+  const jobs: Job[] = jsonObj.rss.channel.item.map((item) => {
     return {
       _id: item.guid + "",
       title: item.title,
@@ -67,23 +63,16 @@ async function run() {
       link: item.link,
     };
   });
-  // Connection URI
   const uri = "mongodb://mongo:mongo@localhost:27017";
 
-  // Create a new MongoClient
   const client = new MongoClient(uri);
 
   try {
-    // Connect the client to the server
     await client.connect();
 
-    // Establish and verify connection
-    const db = await client.db("generic_job_board");
+    const db = client.db("generic_job_board");
     console.log("Connected successfully to server");
     const collection = db.collection("jobs");
-
-    // @ts-ignore
-    // await collection.insertMany(mappedJobs);
 
     await collection.bulkWrite(
       jobs.map((job) => {
@@ -97,11 +86,7 @@ async function run() {
       }),
       { ordered: false }
     );
-    // mappedJobs.map(async (job) => {
-    //   await collection.replaceOne({}, job, { upsert: true });
-    // });
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
