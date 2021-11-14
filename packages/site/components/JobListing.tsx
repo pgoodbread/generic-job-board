@@ -12,10 +12,10 @@ export default function JobListing({ job }: { job: Job }) {
         onClick={() => setShowDetails(!showDetails)}
       >
         <div className="w-14 h-14 relative">
-          <Image src={"/" + job.logo} layout="fill" alt="job logo"></Image>
+          <Image src={"/" + job.image} layout="fill" alt="job logo"></Image>
         </div>
         <div className="flex flex-col space-y-1">
-          <p className="text-lg">{job.name}</p>
+          <p className="text-lg">{job.title}</p>
           <div className="flex space-x-2">
             {job.tags.map((tag, index) => (
               <span
@@ -30,8 +30,8 @@ export default function JobListing({ job }: { job: Job }) {
       </div>
       {showDetails && (
         <div className="flex flex-col">
-          <h3 className="text-center">{job.name}</h3>
-          <p className="">{job.text}</p>
+          <h3 className="text-center">{job.title}</h3>
+          <p className="">{job.description}</p>
         </div>
       )}
     </>

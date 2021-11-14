@@ -1,7 +1,7 @@
 # Web Scraper Backend
 
 Run docker mongo
-`$ docker run --name some-mongo -d mongo:tag`
+`$ docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=mongo mongo`
 
 ## Offene Punkte
 

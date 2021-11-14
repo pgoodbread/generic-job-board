@@ -1,10 +1,15 @@
 import JobListing from "./JobListing";
 
 export type Job = {
-  name: string;
-  text: string;
+  _id: string;
+  title: string;
+  description: string;
+  company: string;
+  publicationDate: Date;
   tags: string[];
-  logo: string;
+  location: string;
+  link: string;
+  image: string;
 };
 
 export default function JobBoard({ jobs }: { jobs: Job[] }) {

@@ -5,7 +5,7 @@ import fetch from "node-fetch";
 type RssResponse = {
   rss: {
     channel: {
-      item: BaseItem[];
+      item: Item[];
     };
   };
 };
@@ -19,9 +19,10 @@ type Job = {
   tags: string[];
   location: string;
   link: string;
+  image: string;
 };
 
-type BaseItem = {
+type Item = {
   title: string;
   company: string;
   description: string;
@@ -61,6 +62,7 @@ async function run() {
       tags: item.tags.split(","),
       location: item.location,
       link: item.link,
+      image: item.image,
     };
   });
   const uri = "mongodb://mongo:mongo@localhost:27017";

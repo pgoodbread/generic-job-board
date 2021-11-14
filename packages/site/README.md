@@ -2,6 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Offene Todos
 
+- Mongo anschließen
 - Daten schön anzeigen
 - Form für Kaufen (inkl. Stripe API)
 - Feedback dingens
