@@ -12,7 +12,7 @@ export default function JobListing({ job }: { job: Job }) {
         onClick={() => setShowDetails(!showDetails)}
       >
         <div className="w-14 h-14 relative">
-          <Image src={"/" + job.image} layout="fill" alt="job logo"></Image>
+          <Image src={job.image} layout="fill" alt="job logo"></Image>
         </div>
         <div className="flex flex-col space-y-1">
           <p className="text-lg">{job.title}</p>

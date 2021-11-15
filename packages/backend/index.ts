@@ -65,7 +65,7 @@ async function run() {
       image: item.image,
     };
   });
-  const uri = "mongodb://mongo:mongo@localhost:27017";
+  const uri = "mongodb://mongo:mongo@localhost:27888";
 
   const client = new MongoClient(uri);
 

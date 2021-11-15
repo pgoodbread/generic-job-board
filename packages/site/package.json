@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "babel-plugin-superjson-next": "^0.4.2",
+    "clsx": "^1.1.1",
     "mongodb": "^4.1.4",
     "next": "11.1.2",
     "react": "17.0.2",
