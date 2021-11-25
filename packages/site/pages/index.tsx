@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import Header from "../components/Header";
 import JobBoard, { Job } from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
@@ -11,8 +11,34 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <div>
       <Header>
-        <div className="w-16 h-16 relative mx-auto">
-          <Image src="/logo.png" alt="logo" layout="fill" />
+        <div
+          style={{
+            backgroundImage: "url(background-network.svg)",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="flex justify-end p-2">
+            <Link href="/post-job">
+              <a className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+                Post a Job
+              </a>
+            </Link>
+          </div>
+          <div className="flex flex-col items-center">
+            <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
+              Reactjobs
+            </h1>
+            <h2 className="text-3xl font-bold text-gray-700 mt-4">
+              The React ⚛️ Job Board
+            </h2>
+            <p className=" text-xl text-gray-500 text-center mt-3">
+              Connecting the{" "}
+              <span className="text-gray-700 font-bold">best jobs </span>
+              with top{" "}
+              <span className="text-primary font-bold">React Developers</span>
+            </p>
+          </div>
         </div>
         <div className="m-4">
           <Newsletter></Newsletter>
