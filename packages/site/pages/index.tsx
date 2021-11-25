@@ -17,8 +17,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
+          className="pb-2 md:pb-[230px]"
         >
-          <div className="flex justify-end p-2">
+          <div className="flex justify-end p-2 md:px-6 ">
             <Link href="/post-job">
               <a className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
                 Post a Job
@@ -40,16 +41,14 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </p>
           </div>
         </div>
-        <div className="m-4">
+        <div className="m-4 md:-mt-52">
           <Newsletter></Newsletter>
         </div>
       </Header>
 
-      <section className="flex my-2 flex-col max-w-4xl mx-auto">
+      <section className="flex my-2 flex-col max-w-4xl mx-auto md:my-0">
         <JobBoard jobs={jobs}></JobBoard>
       </section>
-
-      <footer></footer>
     </div>
   );
 };
