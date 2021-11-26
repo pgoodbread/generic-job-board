@@ -2,6 +2,8 @@ import parser from "fast-xml-parser";
 import { MongoClient } from "mongodb";
 import fetch from "node-fetch";
 
+require("dotenv").config();
+
 type RssResponse = {
   rss: {
     channel: {
@@ -65,9 +67,8 @@ async function run() {
       image: item.image,
     };
   });
-  const uri = "mongodb://mongo:mongo@localhost:27888";
 
-  const client = new MongoClient(uri);
+  const client = new MongoClient(process.env.MONGO_URI!);
 
   try {
     await client.connect();
