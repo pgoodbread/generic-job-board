@@ -1,41 +1,49 @@
+import clsx from "clsx";
 import Image from "next/image";
+import { PropsWithChildren, useCallback } from "react";
+import { getDayjs } from "../utils";
 import type { Job } from "./JobBoard";
 
-export default function JobListing({ job }: { job: Job }) {
+export default function JobListing({
+  job,
+  firstJob,
+}: {
+  job: Job;
+  firstJob: boolean;
+}) {
+  const dayjs = useCallback(getDayjs, []);
+
   return (
     <a
-      className="flex flex-row space-x-2 cursor-pointer mx-2 items-center border-t py-2"
+      className={clsx(
+        "flex space-x-4 cursor-pointer mx-2 py-2 lg:border lg:rounded-lg lg:p-2",
+        {
+          "border-t": !firstJob,
+        }
+      )}
       href={job.link}
     >
-      <div className="w-10 h-10 relative">
+      <div className="relative flex items-center">
         <Image
           src={job.image}
           alt="job logo"
-          layout="fill"
+          width="43px"
+          height="43px"
           className="rounded-full"
         ></Image>
       </div>
-      <div className="flex flex-col space-y-1 w-2/3">
-        <p className="text-small font-bold">{job.title}</p>
-        <p className="text-xs text-gray-500">{job.company}</p>
-        <div className="flex space-x-2">
-          {job.tags.map((tag, index) => (
-            <span
-              className="text-xxs border-gray-300 rounded-md border px-2 uppercase whitespace-nowrap truncate py-[2px]"
-              key={index}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col justify-end text-right space-y-4">
-        <p className="text-xs text-gray-500">29d</p>
-        <p className="flex items-center text-xs text-gray-500">
+      <div className="flex flex-col flex-1">
+        <p className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">
+          {job.title}
+        </p>
+        <p className="text-xs lg:text-base leading-tight text-primary">
+          {job.company}
+        </p>
+        <p className="flex items-center text-xxs lg:text-xs text-gray-500 mt-1">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-4 w-4 pr-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -54,9 +62,33 @@ export default function JobListing({ job }: { job: Job }) {
               />
             </svg>
           </span>
-          Worldwide
+          {job.location}
+        </p>
+        <div className="flex space-x-2 mt-1 lg:hidden">
+          {job.tags.map((tag, index) => (
+            <Tag key={index}>{tag}</Tag>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex-1 space-x-2 lg:flex hidden items-center">
+        {job.tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </div>
+      <div className="flex flex-col text-right justify-center">
+        <p className="text-xs lg:text-base text-gray-500">
+          {dayjs().to(new Date(job.publicationDate))}
         </p>
       </div>
     </a>
+  );
+}
+
+function Tag({ children }: PropsWithChildren<{}>) {
+  return (
+    <span className="text-xxs lg:text-xs border-gray-700 rounded-md border px-2 uppercase whitespace-nowrap truncate py-[2px] text-white bg-gray-700">
+      {children}
+    </span>
   );
 }

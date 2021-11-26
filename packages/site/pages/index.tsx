@@ -19,7 +19,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </div>
       </Header>
 
-      <section className="flex my-2 flex-col">
+      <section className="flex my-2 flex-col max-w-4xl mx-auto">
         <JobBoard jobs={jobs}></JobBoard>
       </section>
 
@@ -39,7 +39,11 @@ export async function getStaticProps() {
     await client.connect();
 
     const collection = client.db("generic_job_board").collection("jobs");
-    const jobs = await collection.find<Job>({}).toArray();
+    const jobs = await collection
+      .find<Job>({})
+      .sort({ publicationDate: -1 })
+      .limit(50)
+      .toArray();
 
     return {
       props: {
