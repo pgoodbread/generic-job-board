@@ -1,17 +1,31 @@
 import clsx from "clsx";
-import { FormEvent, useState } from "react";
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { useState } from "react";
+import { EmailValidation } from "../lib/validation";
+import { FormProps } from "../types";
 
-export default function Newsletter() {
-  const [email, setEmail] = useState("");
+type EmailForForm = {
+  email: string;
+};
+
+export default function Newsletter({
+  initialValues = {
+    email: "",
+  },
+}: Pick<FormProps<EmailForForm>, "initialValues">) {
   const [isDisabled, setDisabled] = useState(false);
 
-  async function handleNewletterSignUp(e: FormEvent) {
+  async function handleNewletterSignUp(
+    values: EmailForForm,
+    formik: FormikHelpers<EmailForForm>
+  ) {
     setDisabled(true);
-    e.preventDefault();
     await fetch("/api/newsletter", {
       method: "POST",
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ ...values }),
     });
+
+    formik.resetForm({});
   }
 
   return (
@@ -30,30 +44,40 @@ export default function Newsletter() {
       </div>
 
       <div className="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
-        <form>
-          <div className="flex flex-col overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row">
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-              aria-label="Enter your email"
-            />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={EmailValidation}
+          onSubmit={handleNewletterSignUp}
+        >
+          {({ isSubmitting, handleBlur, handleChange, values }) => (
+            <Form className="flex flex-col">
+              <ErrorMessage
+                className="text-red-600"
+                name="email"
+                component="div"
+              />
+              <div className="relative flex flex-col overflow-hidden rounded-lg lg:flex-row">
+                <Field
+                  className="px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
 
-            <button
-              onClick={handleNewletterSignUp}
-              disabled={isDisabled}
-              className={clsx(
-                "px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-200 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none",
-                { "opacity-50 cursor-not-allowed": isDisabled }
-              )}
-            >
-              subscribe
-            </button>
-          </div>
-        </form>
+                <button
+                  type="submit"
+                  disabled={isDisabled}
+                  className={clsx(
+                    "px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-200 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none",
+                    { "opacity-50 cursor-not-allowed": isDisabled }
+                  )}
+                >
+                  Subscribe
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </section>
   );

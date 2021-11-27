@@ -8,3 +8,13 @@ export const JobValidation = yup.object({
   link: yup.string().required().url('Hint: the link must contain "http(s)://"'),
   image: yup.string().required(),
 });
+
+export const EmailValidation = yup.object({
+  email: yup
+    .string()
+    .matches(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      "Email invalid"
+    )
+    .required("Email is required"),
+});

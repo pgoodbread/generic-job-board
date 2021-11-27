@@ -2,11 +2,12 @@ import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
-import type { Job } from "../types";
+import type { Job, FormProps } from "../types";
 import ButtonStyle from "./ButtonStyle";
 import JobListing from "./JobListing";
 
 export default function JobForm({
+  onSubmit,
   initialValues = {
     title: "",
     company: "",
@@ -15,14 +16,7 @@ export default function JobForm({
     tags: "",
     link: "",
   },
-  onSubmit,
-}: {
-  onSubmit: (
-    values: JobForForm,
-    formikHelpers: FormikHelpers<JobForForm>
-  ) => void | Promise<unknown>;
-  initialValues?: JobForForm;
-}) {
+}: FormProps<JobForForm>) {
   const [previewJob, setPreviewJob] = useState(
     generateJobPreview(initialValues)
   );

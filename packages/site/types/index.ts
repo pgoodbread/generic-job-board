@@ -1,3 +1,5 @@
+import { FormikHelpers } from "formik";
+
 export type Job = {
   _id: string;
   title: string;
@@ -9,3 +11,13 @@ export type Job = {
   link: string;
   image: string;
 };
+
+export type FormProps<T> = {
+  onSubmit: FormikOnSubmitHandler<T>;
+  initialValues?: T;
+};
+
+export type FormikOnSubmitHandler<T> = (
+  values: T,
+  formikHelpers: FormikHelpers<T>
+) => void | Promise<unknown>;

@@ -29,7 +29,6 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
         </Header>
         <JobForm
           onSubmit={async (values, { setSubmitting }) => {
-            console.log("fetiching");
             await fetch("/api/create-job", {
               method: "POST",
               body: JSON.stringify(values),
