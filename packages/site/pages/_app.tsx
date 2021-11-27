@@ -1,7 +1,9 @@
 import PlausibleProvider from "next-plausible";
+import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Modal from "react-modal";
 import Layout from "../components/Layout";
+import SEO from "../next-seo.config";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <PlausibleProvider domain="reactjobs.com">
+      <DefaultSeo {...SEO} />
       <Layout>
         <Component {...pageProps} />
       </Layout>
