@@ -15,8 +15,8 @@
 - Feedback box Post-a-Job-Page?
 - Feedback dingens Homepage
 - 2 weitere Job Boards anbinden
-- Contact-Link with mailto:reactjobs@gmail.com
-- Impressum
+- ~~Contact-Link with mailto:reactjobs@gmail.com~~
+- ~~Impressum~~
 - Automatisierte Tests
 - Deployment 1: Vercel
 - Deployment 2: Datenbank
