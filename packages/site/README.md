@@ -9,9 +9,7 @@
 ## Hackathon Wochenende
 
 - Feedback dingens Homepage
-- Email Validation
 - Post-a-Job Form verarbeiten
-- Vorschau
 - STRIPE API
 - Feedback box Post-a-Job-Page?
 - Automatisierte Tests
@@ -20,7 +18,10 @@
 - Deployment 3: Scraper-Job
 
 ## Done
+
 - 2 weitere Job Boards anbinden
+- Email Validation
+- Vorschau
 - Contact-Link with mailto:reactjobs@gmail.com
 - Impressum
 
