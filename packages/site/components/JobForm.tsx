@@ -27,7 +27,7 @@ export default function JobForm({
     generateJobPreview(initialValues)
   );
   return (
-    <div className="relative">
+    <div className="relative mb-8">
       <Formik
         initialValues={initialValues}
         validationSchema={JobValidation}
@@ -35,16 +35,38 @@ export default function JobForm({
       >
         {({ isSubmitting, handleBlur, handleChange, values }) => (
           <Form className="flex flex-col justify-center mt-4 md:mt-12 mx-4 md:w-1/2 md:mx-auto">
-            <FormInput name="title" type="text" />
-            <FormInput name="company" type="text" />
-            <FormInput name="image" type="file" />
-            <FormInput name="location" type="text" />
-            <FormInput name="tags" type="text" />
-            <FormInput name="link" type="url" />
+            <FormInput
+              name="title"
+              label="Job Title"
+              hint="Example: 'Senior React Developer'"
+              type="text"
+            />
+            <FormInput
+              name="company"
+              type="text"
+              hint="Example: 'Apple', 'Microsoft'"
+            />
+            <FormInput name="image" label="Company Logo" type="file" />
+            <FormInput
+              name="location"
+              type="text"
+              hint="Example: 'Remote', 'USA', 'Europe'"
+            />
+            <FormInput
+              name="tags"
+              type="text"
+              hint="Comma-separated - maximum of 3 Tags"
+            />
+            <FormInput
+              name="link"
+              label="Job Posting URL"
+              type="url"
+              hint="Example: 'https://company.com/careers'"
+            />
 
             <ButtonStyle>
               <button type="submit" disabled={isSubmitting}>
-                Submit
+                Checkout
               </button>
             </ButtonStyle>
             <UpdatePreview setPreviewJob={setPreviewJob} />
@@ -56,7 +78,7 @@ export default function JobForm({
         <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
           <JobListing
             preview={true}
-            firstJob={true}
+            firstJob={false}
             job={{
               _id: "1",
               publicationDate: new Date().toISOString(),

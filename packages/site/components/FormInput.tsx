@@ -6,6 +6,7 @@ export default function FormInput({
   className,
   label,
   placeholder,
+  hint,
   optional,
   nullable,
   value,
@@ -16,6 +17,7 @@ export default function FormInput({
   className?: string;
   label?: string;
   placeholder?: string;
+  hint?: string;
   optional?: boolean;
   nullable?: boolean;
   value?: number | null | "";
@@ -28,9 +30,12 @@ export default function FormInput({
       <div className="flex flex-row justify-between">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-700 capitalize"
+          className="block text-sm font-medium text-gray-700 w-full"
         >
-          {label ? label : name}{" "}
+          <div className="flex justify-between">
+            <span className="capitalize">{label ? label : name}</span>{" "}
+            {hint && <span className="text-gray-400 font-normal">{hint}</span>}
+          </div>
         </label>
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
