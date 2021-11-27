@@ -8,3 +8,7 @@
 .MuiInputBase-input:focus {
   box-shadow: unset;
 }
+
+.MuiButton-root {
+  z-index: 1;
+}
