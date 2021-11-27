@@ -20,7 +20,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           className="pb-2 md:pb-[230px]"
         >
           <div className="flex justify-end p-2 md:px-6 ">
-            <Link href="/post-job">
+            <Link href="/jobs/create">
               <a className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
                 Post a Job
               </a>
@@ -28,7 +28,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </div>
           <div className="flex flex-col items-center">
             <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
-              Reactjobs
+              <Link href="/">
+                <a>Reactjobs</a>
+              </Link>
             </h1>
             <h2 className="text-3xl font-bold text-gray-700 mt-4">
               The React ⚛️ Job Board
@@ -42,6 +44,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </div>
         </div>
         <div className="m-4 md:-mt-52">
+          {" "}
           <Newsletter></Newsletter>
         </div>
       </Header>
