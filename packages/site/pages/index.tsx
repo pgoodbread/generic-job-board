@@ -2,8 +2,9 @@ import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
-import JobBoard, { Job } from "../components/JobBoard";
+import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
+import type { Job } from "../types";
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   jobs,
