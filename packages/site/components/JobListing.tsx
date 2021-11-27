@@ -30,7 +30,7 @@ export default function JobListing({
     >
       <div className="relative flex items-center">
         <Image
-          src={job.image}
+          src="/favicon.ico"
           alt="job logo"
           width="43px"
           height="43px"

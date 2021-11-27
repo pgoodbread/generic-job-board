@@ -36,7 +36,6 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
             });
 
             router.push("/");
-
             setSubmitting(false);
           }}
         />

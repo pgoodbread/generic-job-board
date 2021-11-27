@@ -12,7 +12,7 @@ export default function JobForm({
     company: "",
     image: "",
     location: "",
-    tags: [],
+    tags: "",
     link: "",
   },
   onSubmit,
@@ -23,7 +23,9 @@ export default function JobForm({
   ) => void | Promise<unknown>;
   initialValues?: JobForForm;
 }) {
-  const [previewJob, setPreviewJob] = useState(initialValues);
+  const [previewJob, setPreviewJob] = useState(
+    generateJobPreview(initialValues)
+  );
   return (
     <div className="relative">
       <Formik
@@ -35,10 +37,10 @@ export default function JobForm({
           <Form className="flex flex-col justify-center mt-4 md:mt-12 mx-4 md:w-1/2 md:mx-auto">
             <FormInput name="title" type="text" />
             <FormInput name="company" type="text" />
-            <FormInput name="companyLogo" type="file" />
+            <FormInput name="image" type="file" />
             <FormInput name="location" type="text" />
             <FormInput name="tags" type="text" />
-            <FormInput name="jobPostingURL" type="url" />
+            <FormInput name="link" type="url" />
 
             <ButtonStyle>
               <button type="submit" disabled={isSubmitting}>
@@ -49,7 +51,7 @@ export default function JobForm({
           </Form>
         )}
       </Formik>
-      (
+
       <div className="fixed bg-white bottom-0 mt-8 w-full pt-2">
         <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
           <JobListing
@@ -64,7 +66,6 @@ export default function JobForm({
           ></JobListing>
         </div>
       </div>
-      );
     </div>
   );
 }
@@ -72,7 +73,7 @@ export default function JobForm({
 const UpdatePreview = ({
   setPreviewJob,
 }: {
-  setPreviewJob: (job: JobForForm) => void;
+  setPreviewJob: (job: BaseJob) => void;
 }) => {
   const { values } = useFormikContext<JobForForm>();
 
@@ -82,16 +83,20 @@ const UpdatePreview = ({
   return null;
 };
 
-type JobForForm = Omit<Job, "_id" | "publicationDate" | "description">;
+type BaseJob = Omit<Job, "_id" | "publicationDate" | "description">;
 
-function generateJobPreview(initialFormJob: JobForForm): JobForForm {
+type JobForForm = Omit<BaseJob, "tags"> & {
+  tags: string;
+};
+
+function generateJobPreview(initialFormJob: JobForForm): BaseJob {
   return {
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
     image: initialFormJob.image || "/favicon.ico",
     location: initialFormJob.location || "Remote, Worldwide",
     tags: initialFormJob.tags.length
-      ? initialFormJob.tags
+      ? initialFormJob.tags.split(",").slice(0, 3)
       : ["React", "TypeScript", "NodeJS"],
     link: initialFormJob.link || "",
   };
