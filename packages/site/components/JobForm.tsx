@@ -50,6 +50,7 @@ export default function JobForm({
       <div>
         <p>Preview:</p>
         <JobListing
+          firstJob={false}
           job={{
             ...initialValues,
             _id: "1",
