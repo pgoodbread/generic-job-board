@@ -36,3 +36,4 @@
 ## Next Steps (AFTER Launch)
 
 - Job Offer bearbeiten können
+- Alte jobs löschen
