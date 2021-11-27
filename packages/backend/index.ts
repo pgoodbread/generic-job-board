@@ -1,6 +1,7 @@
 import parser from "fast-xml-parser";
 import { MongoClient } from "mongodb";
 import fetch from "node-fetch";
+import wc from "which-country";
 
 require("dotenv").config();
 
@@ -21,7 +22,7 @@ type Job = {
   tags: string[];
   location: string;
   link: string;
-  image: string;
+  image: string | null;
 };
 
 type RemoteOkItem = {
@@ -46,18 +47,78 @@ type IndeedItem = {
   "georss:point": string;
 };
 
+type RemoteIOItem = {
+  title: string;
+  link: string;
+  guid: string;
+  description: string;
+  pubDate: string;
+};
+
+const taglist = [
+  "react",
+  "typescript",
+  "javascript",
+  "nodejs",
+  "mongodb",
+  "redux",
+  "express",
+  "graphql",
+  "apollo",
+  "prisma",
+  "nextjs",
+  "html",
+  "css",
+  "sass",
+  "scss",
+  "less",
+  "graphql",
+  "ux",
+  "cloud",
+  "healthcare",
+  "tech lead",
+  "mobile",
+  "full stack",
+];
+
+function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
+  return {
+    _id: remoteIOItem.guid + "",
+    title: remoteIOItem.title,
+    description: remoteIOItem.description,
+    company: "",
+    publicationDate: remoteIOItem.pubDate,
+    tags: taglist
+      .filter((tag) => remoteIOItem.description.toLowerCase().includes(tag))
+      .slice(0, 3),
+    location: "worldwide",
+    link: remoteIOItem.link,
+    image: null,
+  };
+}
+
 function mapIndeed(indeedItem: IndeedItem): Job {
   return {
     _id: indeedItem.guid + "",
     title: indeedItem.title,
     description: indeedItem.description,
-    company: "",
+    company: indeedItem.source,
     publicationDate: indeedItem.pubDate,
-    tags: [],
-    location: "",
+    tags: taglist
+      .filter((tag) => indeedItem.description.toLowerCase().includes(tag))
+      .slice(0, 3),
+    location: getLocation(indeedItem),
     link: indeedItem.link,
-    image: "",
+    image: null,
   };
+}
+
+function getLocation(indeedItem: IndeedItem): string {
+  if (!indeedItem["georss:point"]) {
+    return indeedItem.link.match(/l=[^&]+/)![0].substring(2);
+  }
+
+  return wc(indeedItem["georss:point"].split(" ").map(Number).reverse());
 }
 
 function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
@@ -77,9 +138,22 @@ function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
 async function run() {
   handleIndeed();
   handleRemoteOk();
+  handleRemoteIO();
 }
 
 run();
+
+async function handleRemoteIO() {
+  const rssResponse = await fetchRSS<RemoteIOItem>(
+    "https://s3.remote.io/feed/rss.xml"
+  );
+
+  const jobs: Job[] = rssResponse.rss.channel.item
+    .filter((x) => x.description.toLowerCase().includes("react"))
+    .map(mapRemoteIO);
+
+  await saveJobs(jobs);
+}
 
 async function handleRemoteOk() {
   const rssResponse = await fetchRSS<RemoteOkItem>(
@@ -93,7 +167,7 @@ async function handleRemoteOk() {
 
 async function handleIndeed() {
   const rssResponse = await fetchRSS<IndeedItem>(
-    "https://de.indeed.com/rss?q=react&l&ts=1636040362935&rq=1&rsIdx=0&fromage=last&newcount=9087&vjk=1a99d34ad6446e7f"
+    "https://www.indeed.com/rss?q=react"
   );
 
   const jobs: Job[] = rssResponse.rss.channel.item.map(mapIndeed);

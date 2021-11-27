@@ -29,13 +29,24 @@ export default function JobListing({
       href={job.link}
     >
       <div className="relative flex items-center">
-        <Image
-          src="/favicon.ico"
-          alt="job logo"
-          width="43px"
-          height="43px"
-          className="rounded-full"
-        ></Image>
+        {job.image ? (
+          <Image
+            src={job.image}
+            alt="job logo"
+            width="43px"
+            height="43px"
+            className="rounded-full"
+          ></Image>
+        ) : (
+          <span className="bg-primary p-2 rounded-full w-11 h-11 text-white flex justify-center items-center">
+            {job.company
+              .split(" ")
+              .map((word) => word[0])
+              .slice(0, 2)
+              .join("")
+              .toUpperCase()}
+          </span>
+        )}
       </div>
       <div className="flex flex-col flex-1">
         <p className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">

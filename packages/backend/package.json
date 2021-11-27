@@ -4,15 +4,16 @@
   "main": "index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node index.ts",
-    "dev": "nodemon index.ts"
+    "start": "ts-node --files index.ts",
+    "dev": "nodemon --files index.ts"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
     "fast-xml-parser": "^3.21.1",
     "mongodb": "^4.1.4",
     "node-fetch": "^2.0.0",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "which-country": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
