@@ -1,4 +1,5 @@
-import { Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
+import { useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
 import type { Job } from "../types";
@@ -22,8 +23,7 @@ export default function JobForm({
   ) => void | Promise<unknown>;
   initialValues?: JobForForm;
 }) {
-  const previewJob = generateJobPreview(initialValues);
-  console.log(previewJob);
+  const [previewJob, setPreviewJob] = useState(initialValues);
   return (
     <div className="relative">
       <Formik
@@ -33,9 +33,9 @@ export default function JobForm({
       >
         {({ isSubmitting, handleBlur, handleChange, values }) => (
           <Form className="flex flex-col justify-center mt-4 md:mt-12 mx-4 md:w-1/2 md:mx-auto">
-            <FormInput name="companyName" type="text" />
+            <FormInput name="title" type="text" />
+            <FormInput name="company" type="text" />
             <FormInput name="companyLogo" type="file" />
-            <FormInput name="jobTitle" type="text" />
             <FormInput name="location" type="text" />
             <FormInput name="tags" type="text" />
             <FormInput name="jobPostingURL" type="url" />
@@ -45,15 +45,16 @@ export default function JobForm({
                 Submit
               </button>
             </ButtonStyle>
+            <UpdatePreview setPreviewJob={setPreviewJob} />
           </Form>
         )}
       </Formik>
-
+      (
       <div className="fixed bg-white bottom-0 mt-8 w-full pt-2">
         <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
           <JobListing
             preview={true}
-            firstJob={false}
+            firstJob={true}
             job={{
               _id: "1",
               publicationDate: new Date().toISOString(),
@@ -63,9 +64,23 @@ export default function JobForm({
           ></JobListing>
         </div>
       </div>
+      );
     </div>
   );
 }
+
+const UpdatePreview = ({
+  setPreviewJob,
+}: {
+  setPreviewJob: (job: JobForForm) => void;
+}) => {
+  const { values } = useFormikContext<JobForForm>();
+
+  useEffect(() => {
+    setPreviewJob(generateJobPreview(values));
+  }, [values]);
+  return null;
+};
 
 type JobForForm = Omit<Job, "_id" | "publicationDate" | "description">;
 
