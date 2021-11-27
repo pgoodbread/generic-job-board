@@ -1,24 +1,29 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { PropsWithChildren, useCallback } from "react";
+import type { Job } from "../types";
 import { getDayjs } from "../utils";
-import type { Job } from "./JobBoard";
 
 export default function JobListing({
   job,
   firstJob,
+  preview = false,
 }: {
   job: Job;
   firstJob: boolean;
+  preview?: boolean;
 }) {
   const dayjs = useCallback(getDayjs, []);
 
   return (
     <a
       className={clsx(
-        "flex space-x-4 cursor-pointer mx-2 py-2 lg:border lg:rounded-lg lg:p-2",
+        "relative flex space-x-4 cursor-pointer mx-4 py-2 lg:border lg:rounded-lg lg:p-2",
         {
           "border-t": !firstJob,
+          "cursor-default": preview,
+          "pointer-events-none": preview,
+          "border-b": preview,
         }
       )}
       href={job.link}
@@ -81,6 +86,11 @@ export default function JobListing({
           {dayjs().to(new Date(job.publicationDate))}
         </p>
       </div>
+      {preview && (
+        <div className="absolute top-0 right-2">
+          <p className="text-lg text-gray-400">PREVIEW</p>
+        </div>
+      )}
     </a>
   );
 }

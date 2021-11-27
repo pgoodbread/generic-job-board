@@ -1,8 +1,8 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
+import type { Job } from "../types";
 import ButtonStyle from "./ButtonStyle";
-import type { Job } from "./JobBoard";
 import JobListing from "./JobListing";
 
 export default function JobForm({
@@ -22,8 +22,10 @@ export default function JobForm({
   ) => void | Promise<unknown>;
   initialValues?: JobForForm;
 }) {
+  const previewJob = generateJobPreview(initialValues);
+  console.log(previewJob);
   return (
-    <>
+    <div className="relative">
       <Formik
         initialValues={initialValues}
         validationSchema={JobValidation}
@@ -47,21 +49,35 @@ export default function JobForm({
         )}
       </Formik>
 
-      <div>
-        <p>Preview:</p>
-        <JobListing
-          firstJob={false}
-          job={{
-            ...initialValues,
-            _id: "1",
-            publicationDate: new Date(),
-            description: "",
-            image: "/favicon.ico",
-          }}
-        ></JobListing>
+      <div className="fixed bg-white bottom-0 mt-8 w-full pt-2">
+        <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
+          <JobListing
+            preview={true}
+            firstJob={false}
+            job={{
+              _id: "1",
+              publicationDate: new Date().toISOString(),
+              description: "",
+              ...previewJob,
+            }}
+          ></JobListing>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
 type JobForForm = Omit<Job, "_id" | "publicationDate" | "description">;
+
+function generateJobPreview(initialFormJob: JobForForm): JobForForm {
+  return {
+    title: initialFormJob.title || "Senior React Developer",
+    company: initialFormJob.company || "Example Company",
+    image: initialFormJob.image || "/favicon.ico",
+    location: initialFormJob.location || "Remote, Worldwide",
+    tags: initialFormJob.tags.length
+      ? initialFormJob.tags
+      : ["React", "TypeScript", "NodeJS"],
+    link: initialFormJob.link || "",
+  };
+}

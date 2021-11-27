@@ -1,16 +1,5 @@
+import type { Job } from "../types";
 import JobListing from "./JobListing";
-
-export type Job = {
-  _id: string;
-  title: string;
-  description: string;
-  company: string;
-  publicationDate: Date;
-  tags: string[];
-  location: string;
-  link: string;
-  image: string;
-};
 
 export default function JobBoard({ jobs }: { jobs: Job[] }) {
   return (

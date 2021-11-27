@@ -9,11 +9,11 @@ export function getDayjs(): Dayjs {
     relativeTime: {
       future: "in %s",
       past: "%s",
-      s: "",
-      m: "",
-      mm: "",
-      h: "",
-      hh: "",
+      s: "1 h",
+      m: "1 h",
+      mm: "1 h",
+      h: "1 h",
+      hh: "%h h",
 
       d: "1 d",
       dd: "%d d",
