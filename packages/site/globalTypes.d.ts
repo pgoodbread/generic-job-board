@@ -3,6 +3,9 @@ declare namespace NodeJS {
     MONGO_URI: string;
     GMAIL_USER: string;
     GMAIL_PASSWORD: string;
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string;
+    STRIPE_SECRET_KEY: string;
+    STRIPE_PRICE_ID: string;
   }
 }
 

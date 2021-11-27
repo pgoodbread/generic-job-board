@@ -29,13 +29,15 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
         </Header>
         <JobForm
           onSubmit={async (values, { setSubmitting }) => {
-            await fetch("/api/create-job", {
-              method: "POST",
-              body: JSON.stringify(values),
-            });
+            const { url: sessionUrl }: { url: Location } = await fetch(
+              "/api/checkout/session",
+              {
+                method: "POST",
+                body: JSON.stringify(values),
+              }
+            ).then((res) => res.json());
 
-            router.push("/");
-            setSubmitting(false);
+            window.location = sessionUrl;
           }}
         />
       </div>

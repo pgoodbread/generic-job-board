@@ -8,9 +8,8 @@
 
 ## Hackathon Wochenende
 
-- Feedback dingens Homepage
-- Post-a-Job Form verarbeiten
 - STRIPE API
+- Post-a-Job Form verarbeiten
 - Feedback box Post-a-Job-Page?
 - Automatisierte Tests
 - Deployment 1: Vercel
@@ -19,6 +18,7 @@
 
 ## Done
 
+- Feedback dingens Homepage
 - 2 weitere Job Boards anbinden
 - Email Validation
 - Vorschau
