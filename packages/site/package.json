@@ -10,21 +10,28 @@
     "cypress": "cypress open"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "@tailwindcss/forms": "^0.3.4",
+    "@types/nodemailer": "^6.4.4",
     "babel-plugin-superjson-next": "^0.4.2",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.7",
     "formik": "^2.2.9",
+    "minimal-feedback": "^1.0.7",
     "mongodb": "^4.1.4",
     "next": "11.1.2",
     "next-plausible": "^3.1.4",
+    "nodemailer": "^6.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-modal": "^3.12.1",
     "superjson": "^1.8.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "17.0.30",
+    "@types/react-modal": "^3.13.1",
     "autoprefixer": "^10.3.7",
     "cypress": "^8.6.0",
     "eslint": "8.0.1",
