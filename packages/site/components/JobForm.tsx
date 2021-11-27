@@ -46,7 +46,6 @@ export default function JobForm({
               type="text"
               hint="Example: 'Apple', 'Microsoft'"
             />
-            <FormInput name="image" label="Company Logo" type="file" />
             <FormInput
               name="location"
               type="text"
@@ -63,6 +62,37 @@ export default function JobForm({
               type="url"
               hint="Example: 'https://company.com/careers'"
             />
+            <div className="mb-4">
+              <div className="flex justify-between w-full mb-2 text-sm">
+                <span className="text-gray-700 block text-sm font-medium text-gray-700capitalize">
+                  Company Logo
+                </span>
+                <span className="text-gray-400 font-normal text-sm">
+                  Recommended Size: 64x64px
+                </span>
+              </div>
+              <div className="flex justify-center">
+                <label className="w-full flex flex-col items-center px-2 py-3 bg-white text-primary rounded-lg tracking-wide uppercase border  cursor-pointer hover:bg-primary hover:text-white">
+                  <svg
+                    className="w-8 h-8"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                  </svg>
+                  <span className="mt-2 text-base leading-normal">
+                    Upload Logo
+                  </span>
+                  <FormInput
+                    className="hidden"
+                    name="image"
+                    label="Company Logo"
+                    type="file"
+                  />
+                </label>
+              </div>
+            </div>
 
             <ButtonStyle>
               <button type="submit" disabled={isSubmitting}>
