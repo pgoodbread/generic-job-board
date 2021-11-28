@@ -98,7 +98,7 @@ export default function JobForm({
         )}
       </Formik>
 
-      <div className="fixed bg-gray-100 bottom-0 w-full pt-2">
+      <div className="fixed bg-white bottom-0 w-full pt-2 md:bg-gray-100">
         <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
           <JobListing
             preview={true}
