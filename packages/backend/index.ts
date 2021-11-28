@@ -14,7 +14,7 @@ type RssResponse<T> = {
 };
 
 type Job = {
-  _id: string;
+  originalId: string;
   title: string;
   description: string;
   company: string;
@@ -83,7 +83,7 @@ const taglist = [
 
 function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
   return {
-    _id: remoteIOItem.guid + "",
+    originalId: remoteIOItem.guid + "",
     title: remoteIOItem.title,
     description: remoteIOItem.description,
     company: "",
@@ -99,7 +99,7 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
 
 function mapIndeed(indeedItem: IndeedItem): Job {
   return {
-    _id: indeedItem.guid + "",
+    originalId: indeedItem.guid + "",
     title: indeedItem.title,
     description: indeedItem.description,
     company: indeedItem.source,
@@ -123,7 +123,7 @@ function getLocation(indeedItem: IndeedItem): string {
 
 function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
   return {
-    _id: remoteOkItem.guid + "",
+    originalId: remoteOkItem.guid + "",
     title: remoteOkItem.title,
     description: remoteOkItem.description,
     company: remoteOkItem.company,
@@ -199,7 +199,7 @@ async function saveJobs(jobs: Job[]) {
       jobs.map((job) => {
         return {
           updateOne: {
-            filter: { _id: job._id },
+            filter: { originalId: job.originalId },
             update: { $set: job },
             upsert: true,
           },
