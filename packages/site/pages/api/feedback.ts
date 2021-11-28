@@ -9,9 +9,6 @@ export default async function handleFeedback(
     return;
   }
 
-  console.log(process.env.GMAIL_USER);
-  console.log(process.env.GMAIL_PASSWORD);
-
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -22,11 +19,13 @@ export default async function handleFeedback(
     },
   });
 
+  const { feedback, type } = req.body;
+
   await transporter.sendMail({
     from: process.env.GMAIL_USER,
     to: "devronhansen@gmail.com, p.gutbrodt@gmail.com",
-    subject: "Hello, you have received feedback 🚀",
-    text: JSON.stringify(req.body),
+    subject: "⚛️ Reactjobs - " + type,
+    text: feedback,
   });
 
   transporter.close();

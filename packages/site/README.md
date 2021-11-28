@@ -7,11 +7,11 @@
 - Email Validation
 
 ## Hackathon Wochenende
-
+- Connect user to job
 - STRIPE API
 - Post-a-Job Form verarbeiten
 - Feedback box Post-a-Job-Page?
-- Automatisierte Tests
+- email feedback
 - Deployment 1: Vercel
 - Deployment 2: Datenbank
 - Deployment 3: Scraper-Job
@@ -38,5 +38,6 @@
 
 ## Next Steps (AFTER Launch)
 
+- Automatisierte Tests
 - Job Offer bearbeiten können
 - Alte jobs löschen
