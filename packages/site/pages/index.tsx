@@ -76,7 +76,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        jobs,
+        jobs: jobs.map((job) => ({ ...job, _id: job._id.toString() })),
       },
     };
   } finally {

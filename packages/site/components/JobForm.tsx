@@ -1,8 +1,8 @@
-import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
+import { Form, Formik, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
-import type { Job, FormProps } from "../types";
+import type { FormProps, JobForForm, PreviewJob } from "../types";
 import ButtonStyle from "./ButtonStyle";
 import JobListing from "./JobListing";
 
@@ -104,9 +104,6 @@ export default function JobForm({
             preview={true}
             firstJob={false}
             job={{
-              _id: "1",
-              publicationDate: new Date().toISOString(),
-              description: "",
               ...previewJob,
             }}
           ></JobListing>
@@ -119,7 +116,7 @@ export default function JobForm({
 const UpdatePreview = ({
   setPreviewJob,
 }: {
-  setPreviewJob: (job: BaseJob) => void;
+  setPreviewJob: (job: PreviewJob) => void;
 }) => {
   const { values } = useFormikContext<JobForForm>();
 
@@ -129,13 +126,7 @@ const UpdatePreview = ({
   return null;
 };
 
-type BaseJob = Omit<Job, "_id" | "publicationDate" | "description">;
-
-type JobForForm = Omit<BaseJob, "tags"> & {
-  tags: string;
-};
-
-function generateJobPreview(initialFormJob: JobForForm): BaseJob {
+function generateJobPreview(initialFormJob: JobForForm): PreviewJob {
   return {
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
@@ -145,5 +136,6 @@ function generateJobPreview(initialFormJob: JobForForm): BaseJob {
       ? initialFormJob.tags.split(",").slice(0, 3)
       : ["React", "TypeScript", "NodeJS"],
     link: initialFormJob.link || "",
+    publicationDate: new Date().toISOString(),
   };
 }

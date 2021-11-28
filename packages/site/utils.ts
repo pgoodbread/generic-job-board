@@ -1,6 +1,7 @@
 import dayjs, { Dayjs } from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import updateLocale from "dayjs/plugin/updateLocale";
+import { BaseJob, JobForForm } from "./types";
 
 export function getDayjs(): Dayjs {
   dayjs.extend(updateLocale);
@@ -27,4 +28,19 @@ export function getDayjs(): Dayjs {
   dayjs.extend(relativeTime);
 
   return dayjs();
+}
+
+export function convertToBaseJob(
+  jobForForm: JobForForm,
+  sessionId: string
+): BaseJob {
+  return {
+    ...jobForForm,
+    tags: jobForForm.tags.split(",").slice(0, 3),
+    publicationDate: new Date().toISOString(),
+    description: "",
+    email: null,
+    activated: null,
+    sessionId: sessionId,
+  };
 }

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { PropsWithChildren, useCallback } from "react";
-import type { Job } from "../types";
+import type { PreviewJob } from "../types";
 import { getDayjs } from "../utils";
 
 export default function JobListing({
@@ -9,7 +9,7 @@ export default function JobListing({
   firstJob,
   preview = false,
 }: {
-  job: Job;
+  job: PreviewJob;
   firstJob: boolean;
   preview?: boolean;
 }) {
