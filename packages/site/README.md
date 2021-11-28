@@ -8,7 +8,6 @@
 
 ## Hackathon Wochenende
 
-- split indeed after "-"
 - joblisting abstand x
 
 - images storen (+ validation)
@@ -28,6 +27,7 @@
 
 ## Done
 
+- split indeed after "-"
 - richtigen JobFilter (keine email, keine stripe session, age < 30d, sorting)
 - activation und publicationDate gleich setzen
 - Connect user to job

@@ -20,7 +20,7 @@ export default function JobListing({
   return (
     <a
       className={clsx(
-        "relative flex space-x-4 cursor-pointer mx-4 py-2 lg:border lg:rounded-lg lg:p-2",
+        "relative flex space-x-4 cursor-pointer mx-4 py-2 lg:border lg:rounded-lg lg:px-4 ",
         {
           "border-t": !firstJob,
           "cursor-default": preview,
