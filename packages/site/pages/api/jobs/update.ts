@@ -27,6 +27,7 @@ export default async function handleJobPostUpdate(
       {
         $set: {
           email: stripeJobData.email,
+          publicationDate: new Date().toISOString(),
         },
       }
     );
