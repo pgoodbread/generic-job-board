@@ -87,7 +87,7 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
     title: remoteIOItem.title,
     description: remoteIOItem.description,
     company: "",
-    publicationDate: remoteIOItem.pubDate,
+    publicationDate: new Date(remoteIOItem.pubDate).toISOString(),
     tags: taglist
       .filter((tag) => remoteIOItem.description.toLowerCase().includes(tag))
       .slice(0, 3),
@@ -103,7 +103,7 @@ function mapIndeed(indeedItem: IndeedItem): Job {
     title: indeedItem.title,
     description: indeedItem.description,
     company: indeedItem.source,
-    publicationDate: indeedItem.pubDate,
+    publicationDate: new Date(indeedItem.pubDate).toISOString(),
     tags: taglist
       .filter((tag) => indeedItem.description.toLowerCase().includes(tag))
       .slice(0, 3),
@@ -127,7 +127,7 @@ function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
     title: remoteOkItem.title,
     description: remoteOkItem.description,
     company: remoteOkItem.company,
-    publicationDate: remoteOkItem.pubDate,
+    publicationDate: new Date(remoteOkItem.pubDate).toISOString(),
     tags: remoteOkItem.tags.split(","),
     location: remoteOkItem.location,
     link: remoteOkItem.link,

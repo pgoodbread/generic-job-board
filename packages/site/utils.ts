@@ -14,7 +14,7 @@ export function getDayjs(): Dayjs {
       m: "1 h",
       mm: "1 h",
       h: "1 h",
-      hh: "%h h",
+      hh: "%d h",
 
       d: "1 d",
       dd: "%d d",
@@ -37,10 +37,9 @@ export function convertToBaseJob(
   return {
     ...jobForForm,
     tags: jobForForm.tags.split(",").slice(0, 3),
-    publicationDate: new Date().toISOString(),
+    publicationDate: null,
     description: "",
     email: null,
-    activated: null,
     sessionId: sessionId,
   };
 }

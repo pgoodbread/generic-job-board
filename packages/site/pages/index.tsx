@@ -69,7 +69,15 @@ export async function getStaticProps() {
 
     const collection = client.db("generic_job_board").collection("jobs");
     const jobs = await collection
-      .find<Job>({})
+      .find<Job>(
+        {
+          publicationDate: {
+            $ne: null,
+            $gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+          },
+        },
+        { projection: { sessionId: 0, email: 0 } }
+      )
       .sort({ publicationDate: -1 })
       .limit(50)
       .toArray();
