@@ -100,7 +100,7 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
 function mapIndeed(indeedItem: IndeedItem): Job {
   return {
     originalId: indeedItem.guid + "",
-    title: indeedItem.title,
+    title: indeedItem.title.split(" -")[0],
     description: indeedItem.description,
     company: indeedItem.source,
     publicationDate: new Date(indeedItem.pubDate).toISOString(),
