@@ -11,10 +11,8 @@
 - split indeed after "-"
 - joblisting abstand x
 
-- feedback einzeln einbauen
 - images storen (+ validation)
 
-- success page stylen + Feedback box Success-Page
 - domain kaufen
 
 - Deployment 1: Vercel
