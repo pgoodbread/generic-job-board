@@ -8,8 +8,6 @@
 
 ## Hackathon Wochenende
 
-- joblisting abstand x
-
 - images storen (+ validation)
 
 - domain kaufen
@@ -27,6 +25,7 @@
 
 ## Done
 
+- joblisting abstand x
 - split indeed after "-"
 - richtigen JobFilter (keine email, keine stripe session, age < 30d, sorting)
 - activation und publicationDate gleich setzen
