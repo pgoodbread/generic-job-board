@@ -8,10 +8,12 @@ export default function JobListing({
   job,
   firstJob,
   preview = false,
+  className,
 }: {
   job: PreviewJob;
   firstJob: boolean;
   preview?: boolean;
+  className?: string;
 }) {
   const dayjs = useCallback(getDayjs, []);
 
@@ -24,7 +26,8 @@ export default function JobListing({
           "cursor-default": preview,
           "pointer-events-none": preview,
           "border-b": preview,
-        }
+        },
+        className
       )}
       href={job.link}
     >

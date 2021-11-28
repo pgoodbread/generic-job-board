@@ -21,7 +21,7 @@ export default function JobForm({
     generateJobPreview(initialValues)
   );
   return (
-    <div className="relative mb-8">
+    <div className="relative mb-12 md:mb-24">
       <Formik
         initialValues={initialValues}
         validationSchema={JobValidation}
@@ -98,7 +98,7 @@ export default function JobForm({
         )}
       </Formik>
 
-      <div className="fixed bg-white bottom-0 mt-8 w-full pt-2">
+      <div className="fixed bg-gray-100 bottom-0 w-full pt-2">
         <div className="max-w-4xl md:w-1/2 mb-2 md:mx-auto">
           <JobListing
             preview={true}
@@ -106,6 +106,7 @@ export default function JobForm({
             job={{
               ...previewJob,
             }}
+            className="bg-white"
           ></JobListing>
         </div>
       </div>
