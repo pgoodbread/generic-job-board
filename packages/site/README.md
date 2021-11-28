@@ -41,6 +41,8 @@
 
 ## Next Steps (AFTER Launch)
 
+- beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
 - Automatisierte Tests
 - Job Offer bearbeiten können
 - Alte jobs löschen
+- stripe webhook für payment succeded
