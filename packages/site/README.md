@@ -7,11 +7,14 @@
 - Email Validation
 
 ## Hackathon Wochenende
+
 - Connect user to job
 - STRIPE API
 - Post-a-Job Form verarbeiten
 - Feedback box Post-a-Job-Page?
 - email feedback
+- Post-a-Job Form verarbeiten
+- Automatisierte Tests
 - Deployment 1: Vercel
 - Deployment 2: Datenbank
 - Deployment 3: Scraper-Job
