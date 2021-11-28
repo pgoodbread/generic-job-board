@@ -15,7 +15,6 @@
 - images storen (+ validation)
 
 - success page stylen + Feedback box Success-Page
-- form page margin unten
 - domain kaufen
 
 - Deployment 1: Vercel

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-wrap justify-center border-t p-4 text-xs text-center text-gray-400 mt-4">
+    <footer className="flex flex-wrap justify-center border-t p-4 text-xs text-center text-gray-400 mt-4 pb-12">
       <div className="inline w-full md:w-auto">
         &copy; {new Date().getFullYear()}{" "}
         <Link href="/">
@@ -15,9 +15,12 @@ export default function Footer() {
           <a className="hover:text-primary">&nbsp;Imprint</a>
         </Link>{" "}
         |{" "}
-        <Link href="mailto:ENTER_EMAIL">
-          <a className="hover:text-primary">Contact</a>
-        </Link>
+        <a
+          href="mailto:jobboard.react@gmail.com"
+          className="hover:text-primary"
+        >
+          Contact
+        </a>
       </div>
     </footer>
   );
