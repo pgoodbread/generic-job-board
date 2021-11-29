@@ -6,9 +6,9 @@ import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
 import type { PreviewJob } from "../types";
 
-const Home: NextPage<InferGetStaticPropsType<typeof getServerSideProps>> = ({
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   jobs,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <Header>
@@ -59,15 +59,16 @@ const Home: NextPage<InferGetStaticPropsType<typeof getServerSideProps>> = ({
 
 export default Home;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const uri = process.env.MONGO_URI;
+  console.log(uri);
 
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
 
-    const collection = client.db("generic_job_board").collection("jobs");
+    const collection = client.db("react-jobs").collection("jobs");
     const jobs = await collection
       .find<PreviewJob>(
         {

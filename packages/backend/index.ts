@@ -192,7 +192,7 @@ async function saveJobs(jobs: Job[]) {
   try {
     await client.connect();
 
-    const db = client.db("generic_job_board");
+    const db = client.db("react-jobs");
     const collection = db.collection("jobs");
 
     await collection.bulkWrite(
