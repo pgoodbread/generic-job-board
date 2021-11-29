@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "../components/Header";
 import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
-import type { Job } from "../types";
+import type { PreviewJob } from "../types";
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   jobs,
@@ -69,14 +69,14 @@ export async function getStaticProps() {
 
     const collection = client.db("generic_job_board").collection("jobs");
     const jobs = await collection
-      .find<Job>(
+      .find<PreviewJob>(
         {
           publicationDate: {
             $ne: null,
             $gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
           },
         },
-        { projection: { sessionId: 0, email: 0 } }
+        { projection: { sessionId: 0, email: 0, description: 0 } }
       )
       .sort({ publicationDate: -1 })
       .limit(50)
@@ -84,7 +84,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        jobs: jobs.map((job) => ({ ...job, _id: job._id.toString() })),
+        jobs: jobs.map((job) => ({ ...job, _id: job._id!.toString() })),
       },
     };
   } finally {

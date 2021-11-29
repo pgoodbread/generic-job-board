@@ -168,6 +168,7 @@ function generateJobPreview(
   file?: string
 ): PreviewJob {
   return {
+    _id: null,
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
     image: file ? file : "/favicon.ico",

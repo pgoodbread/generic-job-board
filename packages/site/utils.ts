@@ -41,5 +41,6 @@ export function convertToBaseJob(
     description: "",
     email: null,
     sessionId: sessionId,
+    image: jobForForm.image.name,
   };
 }

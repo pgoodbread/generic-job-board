@@ -1,7 +1,7 @@
-import type { Job } from "../types";
+import { PreviewJob } from "../types";
 import JobListing from "./JobListing";
 
-export default function JobBoard({ jobs }: { jobs: Job[] }) {
+export default function JobBoard({ jobs }: { jobs: PreviewJob[] }) {
   return (
     <div className="flex flex-col space-y-2">
       {jobs.map((job, index) => {

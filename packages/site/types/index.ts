@@ -31,6 +31,7 @@ export type PreviewJob = Omit<
   "description" | "email" | "sessionId"
 > & {
   publicationDate: string;
+  _id: string | null;
 };
 
 export type JobForForm = Omit<
