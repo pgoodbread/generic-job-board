@@ -133,17 +133,16 @@ const UpdatePreview = ({
   const { values } = useFormikContext<JobForForm>();
 
   useEffect(() => {
-    async function a() {
+    async function setPreview() {
+      let fileAsText;
       if (values.image) {
-        const c = await readUploadedFileAsText(values.image);
-        console.log({ c });
-
-        const a = generateJobPreview(values, c);
-        setPreviewJob(a);
+        fileAsText = await readUploadedFileAsText(values.image);
       }
+
+      setPreviewJob(generateJobPreview(values, fileAsText));
     }
 
-    a();
+    setPreview();
   }, [values]);
   return null;
 };
