@@ -6,9 +6,9 @@ import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
 import type { PreviewJob } from "../types";
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Home: NextPage<InferGetStaticPropsType<typeof getServerSideProps>> = ({
   jobs,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Header>
@@ -59,7 +59,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri);
