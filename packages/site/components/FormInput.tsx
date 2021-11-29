@@ -54,6 +54,13 @@ export default function FormInput({
             onChange={handlers?.handleChange}
             onBlur={handlers?.handleBlur}
           />
+        ) : type === "file" ? (
+          <input
+            id="file"
+            name="file"
+            type="file"
+            onChange={handlers?.handleChange}
+          />
         ) : (
           <Field className={inputStyle} type={type} name={name} />
         )}
@@ -61,4 +68,7 @@ export default function FormInput({
       <ErrorMessage className="text-red-600" name={name} component="div" />
     </div>
   );
+}
+function setFieldValue(arg0: string, arg1: File) {
+  throw new Error("Function not implemented.");
 }

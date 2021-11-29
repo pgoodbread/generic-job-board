@@ -8,9 +8,7 @@
 
 ## Hackathon Wochenende
 
-- images storen (+ validation)
-
-- domain kaufen
+- file validation
 
 - Deployment 1: Vercel
 - Deployment 2: Datenbank
@@ -24,7 +22,8 @@
 - Lighthouse
 
 ## Done
-
+- images storen
+- domain kaufen
 - joblisting abstand x
 - split indeed after "-"
 - richtigen JobFilter (keine email, keine stripe session, age < 30d, sorting)

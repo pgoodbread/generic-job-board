@@ -1,3 +1,4 @@
+import type aws from "aws-sdk";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -29,11 +30,34 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
         </Header>
         <JobForm
           onSubmit={async (values, { setSubmitting }) => {
+            //s3 prefetch
+            const { url, fields }: aws.S3.PresignedPost = await fetch(
+              `/api/images/upload?file=${values.image.name}`
+            ).then((res) => res.json());
+
+            //s3 upload
+            const formData = new FormData();
+
+            Object.entries({ ...fields, file: values.image }).forEach(
+              ([key, value]) => {
+                formData.append(key, value);
+              }
+            );
+
+            await fetch(url, {
+              method: "POST",
+              body: formData,
+            });
+
+            //checkout
             const { url: sessionUrl }: { url: Location } = await fetch(
               "/api/checkout/session",
               {
                 method: "POST",
-                body: JSON.stringify(values),
+                body: JSON.stringify({
+                  ...values,
+                  image: `${url}/${fields.key}`,
+                }),
               }
             ).then((res) => res.json());
 
