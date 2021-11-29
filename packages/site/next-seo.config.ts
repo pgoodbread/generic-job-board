@@ -1,15 +1,15 @@
 import { NextSeoProps } from "next-seo";
 
 const SEO: NextSeoProps = {
-  canonical: "https://coursehub.app",
-  titleTemplate: "CourseHub | %s",
-  defaultTitle: "CourseHub",
+  canonical: "https://react-jobs.io",
+  titleTemplate: "Reactjobs | %s",
+  defaultTitle: "Reactjobs",
   description:
-    "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
+    "Looking for a React Job? Reactjobs connects the best React Jobs with top React Developer talent.",
   openGraph: {
-    title: "CourseHub",
+    title: "Reactjobs",
     description:
-      "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
+      "Looking for a React Job? Reactjobs connects the best React Jobs with top React Developer talent.",
   },
 };
 
