@@ -33,6 +33,10 @@ export type PreviewJob = Omit<
   publicationDate: string;
 };
 
-export type JobForForm = Omit<PreviewJob, "tags" | "publicationDate"> & {
+export type JobForForm = Omit<
+  PreviewJob,
+  "tags" | "publicationDate" | "image"
+> & {
   tags: string;
+  image: File;
 };

@@ -6,6 +6,10 @@ declare namespace NodeJS {
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string;
     STRIPE_SECRET_KEY: string;
     STRIPE_PRICE_ID: string;
+    S3_UPLOAD_KEY: string;
+    S3_UPLOAD_SECRET: string;
+    S3_UPLOAD_BUCKET: string;
+    S3_UPLOAD_REGION: string;
   }
 }
 

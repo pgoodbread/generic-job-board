@@ -1,5 +1,5 @@
 import { Form, Formik, useFormikContext } from "formik";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
 import type { FormProps, JobForForm, PreviewJob } from "../types";
@@ -11,6 +11,7 @@ export default function JobForm({
   initialValues = {
     title: "",
     company: "",
+    //@ts-ignore
     image: "",
     location: "",
     tags: "",
@@ -27,7 +28,13 @@ export default function JobForm({
         validationSchema={JobValidation}
         onSubmit={onSubmit}
       >
-        {({ isSubmitting, handleBlur, handleChange, values }) => (
+        {({
+          isSubmitting,
+          handleBlur,
+          handleChange,
+          values,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col justify-center mt-4 md:mt-12 mx-4 md:w-1/2 md:mx-auto">
             <FormInput
               name="title"
@@ -83,6 +90,12 @@ export default function JobForm({
                     name="image"
                     label="Company Logo"
                     type="file"
+                    handlers={{
+                      handleChange(event: ChangeEvent<HTMLInputElement>) {
+                        setFieldValue("image", event.currentTarget.files![0]);
+                      },
+                      handleBlur: handleBlur,
+                    }}
                   />
                 </label>
               </div>
@@ -103,9 +116,7 @@ export default function JobForm({
           <JobListing
             preview={true}
             firstJob={false}
-            job={{
-              ...previewJob,
-            }}
+            job={previewJob}
             className="bg-white"
           ></JobListing>
         </div>
@@ -122,16 +133,45 @@ const UpdatePreview = ({
   const { values } = useFormikContext<JobForForm>();
 
   useEffect(() => {
-    setPreviewJob(generateJobPreview(values));
+    async function a() {
+      if (values.image) {
+        const c = await readUploadedFileAsText(values.image);
+        console.log({ c });
+
+        const a = generateJobPreview(values, c);
+        setPreviewJob(a);
+      }
+    }
+
+    a();
   }, [values]);
   return null;
 };
 
-function generateJobPreview(initialFormJob: JobForForm): PreviewJob {
+function readUploadedFileAsText(inputFile: File): Promise<string> {
+  const temporaryFileReader = new FileReader();
+
+  return new Promise((resolve, reject) => {
+    temporaryFileReader.onerror = () => {
+      temporaryFileReader.abort();
+      reject(new DOMException("Problem parsing input file."));
+    };
+
+    temporaryFileReader.onloadend = () => {
+      resolve(temporaryFileReader.result as string);
+    };
+    temporaryFileReader.readAsDataURL(inputFile);
+  });
+}
+
+function generateJobPreview(
+  initialFormJob: JobForForm,
+  file?: string
+): PreviewJob {
   return {
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
-    image: initialFormJob.image || "/favicon.ico",
+    image: file ? file : "/favicon.ico",
     location: initialFormJob.location || "Remote, Worldwide",
     tags: initialFormJob.tags.length
       ? initialFormJob.tags.split(",").slice(0, 3)
