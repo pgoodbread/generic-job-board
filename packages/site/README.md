@@ -6,12 +6,10 @@
 - Bestätigungsemail
 - Email Validation
 
-## Hackathon Wochenende
-
-- Deployment 3: Scraper-Job
-
 ## Schritte bis Go Live
 
+- getStaticProps mit revalidation
+- Deployment 3: Scraper-Job
 - Plausible Targets anlegen (Post-a-Job button, Checkout)
 - Testen
 - next-SEO
