@@ -131,7 +131,7 @@ function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
     tags: remoteOkItem.tags.split(","),
     location: remoteOkItem.location,
     link: remoteOkItem.link.toLowerCase(),
-    image: remoteOkItem.image,
+    image: remoteOkItem.image.toLowerCase(),
   };
 }
 
