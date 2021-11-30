@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   Modal.setAppElement("#__next");
 
   return (
-    <PlausibleProvider domain="reactjobs.com">
+    <PlausibleProvider domain="react-jobs.io">
       <DefaultSeo {...SEO} />
       <Layout>
         <Component {...pageProps} />
