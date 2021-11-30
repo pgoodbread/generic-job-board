@@ -6,6 +6,18 @@ export const JobValidation = yup.object({
   tags: yup.string(),
   location: yup.string().required(),
   link: yup.string().required().url('Hint: the link must contain "http(s)://"'),
+  image: yup
+    .mixed()
+    .required("A file is required")
+    .test("fileSize", "File too large", (value) => {
+      //smaller than 500kb
+      return value && value.size <= 500000;
+    })
+    .test("fileFormat", "Unsupported Format", (value) => {
+      return (
+        value && ["image/jpg", "image/jpeg", "image/png"].includes(value.type)
+      );
+    }),
 });
 
 export const EmailValidation = yup.object({

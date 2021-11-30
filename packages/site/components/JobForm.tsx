@@ -1,4 +1,4 @@
-import { Form, Formik, useFormikContext } from "formik";
+import { ErrorMessage, Form, Formik, useFormikContext } from "formik";
 import { ChangeEvent, useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
@@ -85,20 +85,22 @@ export default function JobForm({
                   <span className="mt-2 text-base leading-normal">
                     Upload Logo
                   </span>
-                  <FormInput
+
+                  <input
                     className="hidden"
-                    name="image"
-                    label="Company Logo"
                     type="file"
-                    handlers={{
-                      handleChange(event: ChangeEvent<HTMLInputElement>) {
-                        setFieldValue("image", event.currentTarget.files![0]);
-                      },
-                      handleBlur: handleBlur,
+                    name="image"
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      setFieldValue("image", event.currentTarget.files![0]);
                     }}
                   />
                 </label>
               </div>
+              <ErrorMessage
+                className="text-red-600"
+                name="image"
+                component="div"
+              />
             </div>
 
             <ButtonStyle>
