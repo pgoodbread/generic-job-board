@@ -61,8 +61,6 @@ export default Home;
 
 export async function getStaticProps() {
   const uri = process.env.MONGO_URI;
-  console.log(uri);
-
   const client = new MongoClient(uri);
 
   try {
@@ -86,6 +84,7 @@ export async function getStaticProps() {
     return {
       props: {
         jobs: jobs.map((job) => ({ ...job, _id: job._id!.toString() })),
+        revalidate: 10,
       },
     };
   } finally {
