@@ -108,7 +108,7 @@ function mapIndeed(indeedItem: IndeedItem): Job {
       .filter((tag) => indeedItem.description.toLowerCase().includes(tag))
       .slice(0, 3),
     location: getLocation(indeedItem),
-    link: indeedItem.link,
+    link: indeedItem.link.replace(/&amp;/g, "&"),
     image: null,
   };
 }
