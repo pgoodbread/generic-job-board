@@ -130,7 +130,7 @@ function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
     publicationDate: new Date(remoteOkItem.pubDate).toISOString(),
     tags: remoteOkItem.tags.split(","),
     location: remoteOkItem.location,
-    link: remoteOkItem.link,
+    link: remoteOkItem.link.toLowerCase(),
     image: remoteOkItem.image,
   };
 }
