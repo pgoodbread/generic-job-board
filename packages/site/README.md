@@ -8,10 +8,6 @@
 
 ## Hackathon Wochenende
 
-- file validation
-
-- Deployment 1: Vercel
-- Deployment 2: Datenbank
 - Deployment 3: Scraper-Job
 
 ## Schritte bis Go Live
@@ -22,6 +18,10 @@
 - Lighthouse
 
 ## Done
+
+- Deployment 2: Datenbank
+- Deployment 1: Vercel
+- file validation
 - images storen
 - domain kaufen
 - joblisting abstand x
