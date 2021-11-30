@@ -29,6 +29,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-modal": "^3.12.1",
+    "sharp": "^0.29.3",
     "stripe": "^8.191.0",
     "superjson": "^1.8.0",
     "yup": "^0.32.11"
