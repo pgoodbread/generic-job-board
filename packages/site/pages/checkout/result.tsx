@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Stripe from "stripe";
 import Header from "../../components/Header";
 
 export default function CheckoutResult() {
-  const [checkoutResult, setCheckoutResut] =
-    useState<Stripe.Checkout.Session | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -15,8 +13,6 @@ export default function CheckoutResult() {
         const result: Stripe.Checkout.Session = await fetch(
           `/api/checkout/${router.query.session_id}`
         ).then((res) => res.json());
-
-        console.log(result);
 
         fetch("/api/jobs/update", {
           method: "POST",
@@ -30,7 +26,6 @@ export default function CheckoutResult() {
     updateJobPost();
   }, [router]);
 
-  console.log(checkoutResult);
   return (
     <div>
       <Header>
@@ -86,9 +81,11 @@ export default function CheckoutResult() {
             </p>
             <p className="text-xl text-gray-700 dark:text-gray-200">
               Thank you for your order with{" "}
-              <a href="/" className="text-primary font-bold hover:underline">
-                Reactjobs
-              </a>
+              <Link href="/">
+                <a className="text-primary font-bold hover:underline">
+                  Reactjobs
+                </a>
+              </Link>
               ! 🙏
             </p>
             <p className="text-base text-gray-400 dark:text-gray-200 mt-2">

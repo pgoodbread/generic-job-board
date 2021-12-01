@@ -1,13 +1,11 @@
 import type aws from "aws-sdk";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import JobForm from "../../components/JobForm";
 
 const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
   ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    const router = useRouter();
     return (
       <div className="mb-4">
         <Header>

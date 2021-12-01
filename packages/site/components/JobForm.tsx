@@ -145,7 +145,7 @@ const UpdatePreview = ({
     }
 
     setPreview();
-  }, [values]);
+  }, [values, setPreviewJob]);
   return null;
 };
 

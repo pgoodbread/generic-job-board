@@ -28,4 +28,6 @@ const ButtonStyle = React.forwardRef(
   }
 );
 
+ButtonStyle.displayName = "ButtonStyle";
+
 export default ButtonStyle;
