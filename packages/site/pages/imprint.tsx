@@ -16,8 +16,11 @@ export default function Imprint() {
         <span>
           {" "}
           Email:{" "}
-          <a href="mailto:<ENTER_EMAIL>" className="hover:text-primary">
-            {"<ENTER_EMAIL>"}
+          <a
+            href="mailto:jobboard.react@gmail.com"
+            className="hover:text-primary"
+          >
+            {"jobboard.react@gmail.com"}
           </a>
         </span>
 

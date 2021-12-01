@@ -42,6 +42,7 @@ EPIC: Form überarbeiten
 - Alte jobs löschen
 - stripe webhook für payment succeded
 - Job Offer bearbeiten können?
+- Create Header Component
 
 ## Done
 

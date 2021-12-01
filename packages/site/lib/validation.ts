@@ -13,11 +13,11 @@ export const JobValidation = yup.object({
     .mixed()
     .test("fileSize", "File too large", (value) => {
       //smaller than 500kb
-      return value && value.size <= 500000;
+      return !value || value.size <= 500000;
     })
     .test("fileFormat", "Unsupported Format", (value) => {
       return (
-        value && ["image/jpg", "image/jpeg", "image/png"].includes(value.type)
+        !value || ["image/jpg", "image/jpeg", "image/png"].includes(value.type)
       );
     }),
 });
