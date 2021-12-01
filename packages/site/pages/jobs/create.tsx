@@ -1,5 +1,6 @@
 import type aws from "aws-sdk";
 import type { InferGetStaticPropsType, NextPage } from "next";
+import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header";
@@ -7,6 +8,8 @@ import JobForm from "../../components/JobForm";
 
 const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
   ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
+    const plausible = usePlausible();
+
     return (
       <div className="mb-4">
         <Header>
@@ -39,6 +42,7 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
         </Header>
         <JobForm
           onSubmit={async (values, { setSubmitting }) => {
+            plausible("Checkout");
             //s3 prefetch
             const { url, fields }: aws.S3.PresignedPost = await fetch(
               `/api/images/upload?file=${values.image.name}`

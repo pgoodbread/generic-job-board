@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { usePlausible } from "next-plausible";
 import { useState } from "react";
 import { EmailValidation } from "../lib/validation";
 import { FormProps } from "../types";
@@ -14,12 +15,14 @@ export default function Newsletter({
   },
 }: Pick<FormProps<EmailForForm>, "initialValues">) {
   const [isDisabled, setDisabled] = useState(false);
+  const plausible = usePlausible();
 
   async function handleNewletterSignUp(
     values: EmailForForm,
     formik: FormikHelpers<EmailForForm>
   ) {
     setDisabled(true);
+    plausible("Newsletter");
     await fetch("/api/newsletter", {
       method: "POST",
       body: JSON.stringify({ ...values }),
