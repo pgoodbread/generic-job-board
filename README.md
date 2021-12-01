@@ -7,9 +7,9 @@ Run docker mongo
 
 ## Schritte bis Go Live (Website Online)
 
-
 ## Schritte bis Validierung
 
+- fix feedback thingy
 - Google Search Console integrieren
 - Lighthouse
 - angucken: tags generator (default tag react)
@@ -17,6 +17,7 @@ Run docker mongo
 - Plausible Targets anlegen (Post-a-Job button, Checkout)
 - Stripe auf Prod umstellen
 - Deployment 3: Scraper-Job
+- S3 requests nur wenn image
 
 EPIC: Form überarbeiten
 
