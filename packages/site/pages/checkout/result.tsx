@@ -1,3 +1,4 @@
+import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,6 +8,7 @@ import Header from "../../components/Header";
 
 export default function CheckoutResult() {
   const router = useRouter();
+  const plausible = usePlausible();
 
   useEffect(() => {
     const updateJobPost = async () => {
@@ -40,7 +42,10 @@ export default function CheckoutResult() {
         >
           <div className="flex justify-end p-2 md:px-6 ">
             <Link href="/jobs/create">
-              <a className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+              <a
+                onClick={() => plausible("Multiple-Job-Posts")}
+                className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
+              >
                 Post more Jobs
               </a>
             </Link>
