@@ -7,11 +7,16 @@ Run docker mongo
 
 ## Schritte bis Go Live (Website Online)
 
-- Example Logo for Preview
-- Logo Favicon
-- Email Newsletter Signup Text + kontraste
-- email border fixen
-- Stripe Checkout Example
+- Stripe Test Denial
+
+- rechteckige Images ermöglichen
+- Target=blank?
+- Location Capitalized
+- Image bei keiner Company fixen (buchstaben von jobtitel)
+- Logo Favicon P
+- Email Newsletter Signup Text + kontraste P
+- email border fixen P
+- Stripe Checkout Example P
 
 - bei logo upload irgendwie anders dinge anzeigen R
 

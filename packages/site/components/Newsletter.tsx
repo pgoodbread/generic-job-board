@@ -32,11 +32,12 @@ export default function Newsletter({
     <section className="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48">
       <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800">
         <div className="px-6 py-6 md:px-8 md:py-0">
-          <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">
-            Sign Up For <span className="text-primary">Project</span> Updates
+          <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-white">
+            Sign Up For <span className="md:bg-primary p-1">React Job</span>{" "}
+            Updates
           </h2>
 
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-200">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Consectetur obcaecati odio
           </p>
@@ -56,9 +57,9 @@ export default function Newsletter({
                 name="email"
                 component="div"
               />
-              <div className="relative flex flex-col overflow-hidden rounded-lg lg:flex-row">
+              <div className="relative flex flex-col rounded-lg lg:flex-row">
                 <Field
-                  className="px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                  className="px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
                   type="email"
                   name="email"
                   placeholder="Enter your email"
@@ -68,7 +69,7 @@ export default function Newsletter({
                   type="submit"
                   disabled={isDisabled}
                   className={clsx(
-                    "px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-200 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none",
+                    "px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-200 transform bg-gray-700 rounded-b-lg lg:rounded-bl-none lg:rounded-r-lg hover:bg-gray-600 focus:bg-gray-600 focus:outline-none",
                     { "opacity-50 cursor-not-allowed": isDisabled }
                   )}
                 >
