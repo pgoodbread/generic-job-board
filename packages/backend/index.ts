@@ -91,7 +91,7 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
     tags: taglist
       .filter((tag) => remoteIOItem.description.toLowerCase().includes(tag))
       .slice(0, 3),
-    location: "worldwide",
+    location: "Worldwide",
     link: remoteIOItem.link,
     image: null,
   };

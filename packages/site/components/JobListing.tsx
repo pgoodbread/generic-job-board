@@ -58,7 +58,7 @@ export default function JobListing({
         <p className="text-xs lg:text-base leading-tight text-primary">
           {job.company}
         </p>
-        <p className="flex items-center text-xxs lg:text-xs text-gray-500 mt-1">
+        <p className="flex items-center text-xxs lg:text-xs text-gray-500 mt-1 capitalize">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
