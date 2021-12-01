@@ -17,6 +17,15 @@ export default function JobListing({
 }) {
   const dayjs = useCallback(getDayjs, []);
 
+  function createDummyLogoInitials(name: string) {
+    return name
+      .split(" ")
+      .map((word) => word[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+  }
+
   return (
     <a
       className={clsx(
@@ -44,11 +53,8 @@ export default function JobListing({
         ) : (
           <span className="bg-primary p-2 rounded-full w-11 h-11 text-white flex justify-center items-center">
             {job.company
-              .split(" ")
-              .map((word) => word[0])
-              .slice(0, 2)
-              .join("")
-              .toUpperCase()}
+              ? createDummyLogoInitials(job.company)
+              : createDummyLogoInitials(job.title)}
           </span>
         )}
       </div>
