@@ -204,7 +204,7 @@ function generateJobPreview(
     _id: null,
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
-    image: file ? file : "/react-jobs-logo.ico",
+    image: file ? file : "/react-jobs-logo.png",
     location: initialFormJob.location || "Remote, Worldwide",
     tags: initialFormJob.tags.length
       ? initialFormJob.tags.split(",").slice(0, 3)
