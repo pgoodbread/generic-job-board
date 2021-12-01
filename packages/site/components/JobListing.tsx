@@ -48,7 +48,7 @@ export default function JobListing({
             alt="job logo"
             width="43px"
             height="43px"
-            className="rounded-full"
+            className="rounded-full object-contain"
           ></Image>
         ) : (
           <span className="bg-primary p-2 rounded-full w-11 h-11 text-white flex justify-center items-center">
