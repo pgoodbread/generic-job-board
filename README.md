@@ -14,8 +14,6 @@ Run docker mongo
 - Stripe Checkout Example
 
 - bei logo upload irgendwie anders dinge anzeigen R
-- spinner anzeigen bis stripe checkout R
-- hart 99 dollar in se button drinne rein
 
 ## Schritte bis Validierung
 
@@ -42,6 +40,8 @@ EPIC: Form überarbeiten
 
 ## Done
 
+- spinner anzeigen bis stripe checkout R
+- hart 99 dollar in se button drinne rein
 - Target=blank?
 - Location Capitalized
 - Image bei keiner Company fixen (buchstaben von jobtitel)
