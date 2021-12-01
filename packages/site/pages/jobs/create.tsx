@@ -1,5 +1,6 @@
 import type aws from "aws-sdk";
 import type { InferGetStaticPropsType, NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header";
 import JobForm from "../../components/JobForm";
@@ -15,8 +16,18 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
                 <a>Reactjobs</a>
               </Link>
             </h1>
-            <h2 className="text-3xl font-bold text-gray-700 mt-4">
-              The React ⚛️ Job Board
+            <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">
+              The React{" "}
+              <div className="inline-block mx-2">
+                <Image
+                  src="/react-jobs-logo.png"
+                  alt="React-Jobs Logo"
+                  height="40"
+                  width="40"
+                />{" "}
+              </div>
+              <span></span>
+              Job Board
             </h2>
             <p className=" text-xl text-gray-500 text-center mt-3">
               Connecting the{" "}

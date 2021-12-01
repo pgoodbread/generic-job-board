@@ -38,7 +38,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               The React{" "}
               <div className="inline-block mx-2">
                 <Image
-                  src="/gray-sharp.png"
+                  src="/react-jobs-logo.png"
                   alt="React-Jobs Logo"
                   height="40"
                   width="40"
