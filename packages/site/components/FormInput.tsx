@@ -30,7 +30,7 @@ export default function FormInput({
       <div className="flex flex-row justify-between">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-700 w-full"
+          className="block text-sm font-medium text-gray-700 w-full tracking-wide"
         >
           <div className="flex justify-between">
             <span className="capitalize">{label ? label : name}</span>{" "}

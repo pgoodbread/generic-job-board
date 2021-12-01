@@ -1,4 +1,5 @@
 import { ErrorMessage, Form, Formik, useFormikContext } from "formik";
+import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
 import FormInput from "../components/FormInput";
 import { JobValidation } from "../lib/validation";
@@ -66,43 +67,68 @@ export default function JobForm({
             />
             <div className="mb-4">
               <div className="flex justify-between w-full mb-2 text-sm">
-                <span className="text-gray-700 block text-sm font-medium text-gray-700capitalize">
+                <span className="block text-sm font-medium text-gray-700 capitalize tracking-wide">
                   Company Logo
                 </span>
                 <span className="text-gray-400 font-normal text-sm">
                   Recommended Size: 64x64px
                 </span>
               </div>
-              <div className="flex justify-center">
-                <label className="w-full flex flex-col items-center px-2 py-3 bg-white text-primary rounded-lg tracking-wide uppercase border  cursor-pointer hover:bg-primary hover:text-white">
-                  <svg
-                    className="w-8 h-8"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span className="mt-2 text-base leading-normal">
-                    Upload Logo
-                  </span>
+              <div className="grid grid-cols-1 space-y-2">
+                <div className="flex items-center justify-center w-full">
+                  <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center cursor-pointer">
+                    <div className="h-full w-full text-center flex flex-col justify-center items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-10 h-10 text-primary group-hover:text-gray-700"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        />
+                      </svg>
 
-                  <input
-                    className="hidden"
-                    type="file"
-                    name="image"
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      setFieldValue("image", event.currentTarget.files![0]);
-                    }}
-                  />
-                </label>
+                      <div className="flex justify-center items-center">
+                        {previewJob.image && (
+                          <Image
+                            className="object-contain rounded-full"
+                            src={previewJob.image}
+                            alt="Upload image"
+                            height={"144px"}
+                            width={"144px"}
+                          />
+                        )}
+                      </div>
+                      <p className="pointer-none text-gray-500">
+                        Drag and drop files here <br /> or{" "}
+                        <span className="text-blue-600 hover:underline">
+                          select a file
+                        </span>{" "}
+                        from your computer
+                      </p>
+                    </div>
+                    <input
+                      className="hidden"
+                      type="file"
+                      name="image"
+                      onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                        setFieldValue("image", event.currentTarget.files![0]);
+                      }}
+                    />
+                  </label>
+                </div>
               </div>
-              <ErrorMessage
-                className="text-red-600"
-                name="image"
-                component="div"
-              />
             </div>
+            <ErrorMessage
+              className="text-red-600"
+              name="image"
+              component="div"
+            />
 
             <ButtonStyle>
               <button
@@ -204,7 +230,7 @@ function generateJobPreview(
     _id: null,
     title: initialFormJob.title || "Senior React Developer",
     company: initialFormJob.company || "Example Company",
-    image: file ? file : "/react-jobs-logo.png",
+    image: file ? file : "",
     location: initialFormJob.location || "Remote, Worldwide",
     tags: initialFormJob.tags.length
       ? initialFormJob.tags.split(",").slice(0, 3)
