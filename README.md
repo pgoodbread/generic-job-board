@@ -9,14 +9,13 @@ Run docker mongo
 
 - Example Logo for Preview
 - Logo Favicon
-- Stripe Test Denial
-- rechteckige Images ermöglichen
-- Target=blank?
-- Location Capitalized
-- Image bei keiner Company fixen (buchstaben von jobtitel)
 - Email Newsletter Signup Text + kontraste
 - email border fixen
 - Stripe Checkout Example
+
+- bei logo upload irgendwie anders dinge anzeigen R
+- spinner anzeigen bis stripe checkout R
+- hart 99 dollar in se button drinne rein
 
 ## Schritte bis Validierung
 
@@ -43,6 +42,10 @@ EPIC: Form überarbeiten
 
 ## Done
 
+- Target=blank?
+- Location Capitalized
+- Image bei keiner Company fixen (buchstaben von jobtitel)
+- rechteckige Images ermöglichen
 - getStaticProps mit revalidation
 - Deployment 2: Datenbank
 - Deployment 1: Vercel
