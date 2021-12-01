@@ -1,14 +1,16 @@
 import * as yup from "yup";
 
 export const JobValidation = yup.object({
-  title: yup.string().required().max(200, "Too long"),
-  company: yup.string().required().max(200, "Too long"),
+  title: yup.string().required("Job Title is required").max(200, "Too long"),
+  company: yup.string().required("Company is required").max(200, "Too long"),
   tags: yup.string(),
-  location: yup.string().required(),
-  link: yup.string().required().url('Hint: the link must contain "http(s)://"'),
+  location: yup.string().required("Location is required"),
+  link: yup
+    .string()
+    .required("Job Posting URL is required")
+    .url('Hint: the link must contain "http(s)://"'),
   image: yup
     .mixed()
-    .required("A file is required")
     .test("fileSize", "File too large", (value) => {
       //smaller than 500kb
       return value && value.size <= 500000;
