@@ -7,18 +7,6 @@ Run docker mongo
 
 ## Schritte bis Go Live (Website Online)
 
-- Stripe Test Denial
-
-- rechteckige Images ermöglichen
-- Target=blank?
-- Location Capitalized
-- Image bei keiner Company fixen (buchstaben von jobtitel)
-- Logo Favicon P
-- Email Newsletter Signup Text + kontraste P
-- email border fixen P
-- Stripe Checkout Example P
-
-- bei logo upload irgendwie anders dinge anzeigen R
 
 ## Schritte bis Validierung
 
@@ -46,6 +34,10 @@ EPIC: Form überarbeiten
 
 ## Done
 
+- Logo Favicon P
+- Email Newsletter Signup Text + kontraste P
+- email border fixen P
+- Stripe Checkout Example P
 - spinner anzeigen bis stripe checkout R
 - hart 99 dollar in se button drinne rein
 - Target=blank?
