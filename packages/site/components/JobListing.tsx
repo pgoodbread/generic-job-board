@@ -30,6 +30,7 @@ export default function JobListing({
         className
       )}
       href={job.link}
+      target="_blank noreferrer"
     >
       <div className="relative flex items-center">
         {job.image ? (
