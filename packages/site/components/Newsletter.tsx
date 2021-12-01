@@ -38,8 +38,15 @@ export default function Newsletter({
           </h2>
 
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-200">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Consectetur obcaecati odio
+            Don&apos;t miss out on your dream React Job! <br /> Take your career
+            in your own hands with our Newsletter!
+          </p>
+          <p className="mt-2 text-xs text-gray-700 md:text-gray-300">
+            We won&apos;t spam your inbox. You&apos;ll receive{" "}
+            <span className="font-bold text-gray-700 md:text-white">
+              max. 1 E-Mail
+            </span>{" "}
+            per Week. Promise. 🙏
           </p>
         </div>
       </div>
