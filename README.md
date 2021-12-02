@@ -7,8 +7,7 @@ Run docker mongo
 
 ## Most Important Things
 
-- fix feedback thingy R
-- Stripe Check wie kostenlos machen R
+- Stripe Check wie kostenlos machen? R
 
 - clear prod DB für Newsletter P
 - max width auf Job-Listing Abschnitten (Tags, Bild, Age) P
@@ -40,6 +39,7 @@ EPIC: Form überarbeiten R
 - stripe webhook für payment succeded
 - Job Offer bearbeiten können?
 - Create Header Component
+- Google fonts sind slow
 
 ## After Launch
 - Suche

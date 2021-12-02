@@ -26,7 +26,9 @@ export default async function handleStripeCheckout(
     mode: "payment",
     success_url: `${req.headers.origin}/checkout/result?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${req.headers.origin}/jobs/create`,
+    allow_promotion_codes: true,
   });
+
   const jobForForm: JobForForm = JSON.parse(req.body);
 
   const baseJob = convertToBaseJob(jobForForm, session.id);
