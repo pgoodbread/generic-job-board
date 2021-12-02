@@ -187,12 +187,12 @@ async function fetchRSS<T>(url: string): Promise<RssResponse<T>> {
 }
 
 async function saveJobs(jobs: Job[]) {
-  const client = new MongoClient(process.env.MONGO_URI!);
+  const client = new MongoClient(process.env.MONGO_URI);
 
   try {
     await client.connect();
 
-    const db = client.db("react-jobs");
+    const db = client.db(process.env.MONGO_DATABASE);
     const collection = db.collection("jobs");
 
     await collection.bulkWrite(

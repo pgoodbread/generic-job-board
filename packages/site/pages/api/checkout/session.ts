@@ -37,12 +37,12 @@ export default async function handleStripeCheckout(
 }
 
 async function saveJobPost(job: BaseJob) {
-  const client = new MongoClient(process.env.MONGO_URI!);
+  const client = new MongoClient(process.env.MONGO_URI);
 
   try {
     await client.connect();
 
-    const db = client.db("generic_job_board");
+    const db = client.db(process.env.MONGO_DATABASE);
     const collection = db.collection("jobs");
 
     await collection.insertOne(job);

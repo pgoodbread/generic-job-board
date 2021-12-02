@@ -1,6 +1,7 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     MONGO_URI: string;
+    MONGO_DATABASE: string;
     GMAIL_USER: string;
     GMAIL_PASSWORD: string;
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string;

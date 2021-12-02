@@ -10,15 +10,14 @@ export default async function handleNewsletterSingUp(
   }
 
   const uri = process.env.MONGO_URI;
+  const db = process.env.MONGO_DATABASE;
 
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
 
-    const collection = client
-      .db("generic_job_board")
-      .collection("newsletter_signup");
+    const collection = client.db(db).collection("newsletter_signup");
 
     const emailRequestBody = JSON.parse(req.body);
 
