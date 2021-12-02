@@ -8,10 +8,11 @@ Run docker mongo
 ## Most Important Things
 
 - fix feedback thingy R
+- Stripe Check wie kostenlos machen R
+
 - clear prod DB für Newsletter P
 - max width auf Job-Listing Abschnitten (Tags, Bild, Age) P
 - Text an Companies (Englisch) P
-- Stripe Check wie kostenlos machen R
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
@@ -26,6 +27,7 @@ EPIC: Form überarbeiten R
 
 - Google Search Console integrieren P+R
 - Lighthouse P+R
+
 - angucken: tags generator (default tag react)
 - next-SEO (siehe Repo)
 - Deployment 3: Scraper-Job
@@ -38,3 +40,9 @@ EPIC: Form überarbeiten R
 - stripe webhook für payment succeded
 - Job Offer bearbeiten können?
 - Create Header Component
+
+## After Launch
+- Suche
+- Kategorieseiten?
+- Aufklappen eines Listings mit mehr Infos (bedeutet auch Anpassungen beim Erstellen eines Listings)
+- automatisches tweeten, newsletter und das beim kauf eines Listings deutlich machen

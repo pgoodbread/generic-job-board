@@ -2,8 +2,6 @@ declare namespace NodeJS {
   interface ProcessEnv {
     MONGO_URI: string;
     MONGO_DATABASE: string;
-    GMAIL_USER: string;
-    GMAIL_PASSWORD: string;
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: string;
     STRIPE_SECRET_KEY: string;
     STRIPE_PRICE_ID: string;
@@ -11,6 +9,8 @@ declare namespace NodeJS {
     S3_UPLOAD_SECRET: string;
     S3_UPLOAD_BUCKET: string;
     S3_UPLOAD_REGION: string;
+    EMAIL_ACCOUNT: string;
+    SENDGRID_API_KEY: string;
   }
 }
 

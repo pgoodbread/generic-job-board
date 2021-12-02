@@ -1,5 +1,7 @@
+import sendgrid from "@sendgrid/mail";
 import type { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
+
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export default async function handleFeedback(
   req: NextApiRequest,
@@ -9,26 +11,18 @@ export default async function handleFeedback(
     return;
   }
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASSWORD,
-    },
-  });
-
   const { feedback, type } = req.body;
 
-  await transporter.sendMail({
-    from: process.env.GMAIL_USER,
-    to: "devronhansen@gmail.com, p.gutbrodt@gmail.com",
-    subject: "⚛️ Reactjobs - " + type,
-    text: feedback,
-  });
+  try {
+    await sendgrid.send({
+      from: process.env.EMAIL_ACCOUNT!,
+      to: process.env.EMAIL_ACCOUNT!,
+      subject: "⚛️ Reactjobs - " + type,
+      text: feedback,
+    });
+  } catch (error: any) {
+    return res.status(error.statusCode || 500).json({ error: error.message });
+  }
 
-  transporter.close();
-
-  res.status(201).json({});
+  return res.status(200).json({ error: "" });
 }
