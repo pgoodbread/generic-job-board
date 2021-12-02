@@ -5,25 +5,31 @@
 Run docker mongo
 `$ docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=mongo mongo`
 
-## Schritte bis Go Live (Website Online)
+## Most Important Things
+
+- fix feedback thingy R
+- clear prod DB für Newsletter P
+- max width auf Job-Listing Abschnitten (Tags, Bild, Age) P
+- Text an Companies (Englisch) P
+- Stripe Check wie kostenlos machen R
+
+**Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 ## Schritte bis Validierung
 
-- fix feedback thingy
-- Google Search Console integrieren
-- Lighthouse
-- angucken: tags generator (default tag react)
-- next-SEO (siehe Repo)
-- Plausible Targets anlegen (Post-a-Job button, Checkout)
-- Stripe auf Prod umstellen
-- Deployment 3: Scraper-Job
-- S3 requests nur wenn image
-
-EPIC: Form überarbeiten
+EPIC: Form überarbeiten R
 
 - beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
 - preis auf button
 - button sticky (desktop - wie mobile?)
+- Preview auf Mobile oben, weil sonst von Tastatur verdeckt
+
+- Google Search Console integrieren P+R
+- Lighthouse P+R
+- angucken: tags generator (default tag react)
+- next-SEO (siehe Repo)
+- Deployment 3: Scraper-Job
+- S3 requests nur wenn image
 
 ## Schritte bis Launch 🚀
 
@@ -32,40 +38,3 @@ EPIC: Form überarbeiten
 - stripe webhook für payment succeded
 - Job Offer bearbeiten können?
 - Create Header Component
-
-## Done
-
-- Logo Favicon P
-- Email Newsletter Signup Text + kontraste P
-- email border fixen P
-- Stripe Checkout Example P
-- spinner anzeigen bis stripe checkout R
-- hart 99 dollar in se button drinne rein
-- Target=blank?
-- Location Capitalized
-- Image bei keiner Company fixen (buchstaben von jobtitel)
-- rechteckige Images ermöglichen
-- getStaticProps mit revalidation
-- Deployment 2: Datenbank
-- Deployment 1: Vercel
-- file validation
-- images storen
-- domain kaufen
-- joblisting abstand x
-- split indeed after "-"
-- richtigen JobFilter (keine email, keine stripe session, age < 30d, sorting)
-- activation und publicationDate gleich setzen
-- Connect user to job
-- email feedback
-- Plausible einbinden
-- Stripe Produkte + Pricing
-- Email Adresse anlegen
-- https validation
-- Post-a-Job Form verarbeiten
-- STRIPE API
-- Feedback dingens Homepage
-- 2 weitere Job Boards anbinden
-- Email Validation
-- Vorschau
-- Contact-Link with mailto:reactjobs@gmail.com
-- Impressum
