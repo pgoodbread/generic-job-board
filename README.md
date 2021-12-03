@@ -9,8 +9,6 @@ Run docker mongo
 
 - Stripe Check wie kostenlos machen? R
 
-- clear prod DB für Newsletter P
-- max width auf Job-Listing Abschnitten (Tags, Bild, Age) P
 - Text an Companies (Englisch) P
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
@@ -42,6 +40,7 @@ EPIC: Form überarbeiten R
 - Google fonts sind slow
 
 ## After Launch
+
 - Suche
 - Kategorieseiten?
 - Aufklappen eines Listings mit mehr Infos (bedeutet auch Anpassungen beim Erstellen eines Listings)

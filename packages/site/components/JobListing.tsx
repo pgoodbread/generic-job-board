@@ -58,7 +58,7 @@ export default function JobListing({
           </span>
         )}
       </div>
-      <div className="flex flex-col flex-grow min-w-0">
+      <div className="flex flex-col flex-grow min-w-0 overflow-hidden">
         <p className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">
           {job.title}
         </p>
