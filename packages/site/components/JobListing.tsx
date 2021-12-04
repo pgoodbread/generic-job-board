@@ -58,7 +58,7 @@ export default function JobListing({
           </span>
         )}
       </div>
-      <div className="flex flex-col flex-grow min-w-0 overflow-hidden">
+      <div className="flex flex-col flex-grow min-w-0 overflow-hidden w-full">
         <p className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">
           {job.title}
         </p>
@@ -106,7 +106,7 @@ export default function JobListing({
           </Tag>
         ))}
       </div>
-      <div className="flex flex-col flex-none text-right min-w-min max-w-sm justify-center">
+      <div className="flex flex-col flex-none text-right ml-4 min-w-min max-w-sm justify-center">
         <p className="text-xs lg:text-base text-gray-500">
           {dayjs().to(new Date(job.publicationDate))}
         </p>
