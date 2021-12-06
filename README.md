@@ -32,16 +32,19 @@ EPIC: Form überarbeiten R
 
 ## Schritte bis Launch 🚀
 
-- Automatisierte Tests
-- Alte jobs löschen
-- stripe webhook für payment succeded
 - Job Offer bearbeiten können?
 - Create Header Component
 - Google fonts sind slow
+- newsletter input zu wenig width
+- feedback component in post a job
 
 ## After Launch
 
+- stripe webhook für payment succeded
+- Automatisierte Tests
 - Suche
 - Kategorieseiten?
 - Aufklappen eines Listings mit mehr Infos (bedeutet auch Anpassungen beim Erstellen eines Listings)
 - automatisches tweeten, newsletter und das beim kauf eines Listings deutlich machen
+- tag komponente
+- Alte jobs löschen
