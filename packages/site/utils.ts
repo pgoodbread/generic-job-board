@@ -3,7 +3,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import updateLocale from "dayjs/plugin/updateLocale";
 import { BaseJob, JobForForm } from "./types";
 
-export function getDayjs(): Dayjs {
+export function getDayjs(input?: string): Dayjs {
   dayjs.extend(updateLocale);
 
   dayjs.updateLocale("en", {
@@ -27,7 +27,7 @@ export function getDayjs(): Dayjs {
 
   dayjs.extend(relativeTime);
 
-  return dayjs();
+  return input ? dayjs(input) : dayjs();
 }
 
 export function convertToBaseJob(

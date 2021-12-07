@@ -26,10 +26,7 @@ export type FormikOnSubmitHandler<T> = (
 
 export type BaseJob = Omit<Job, "_id">;
 
-export type PreviewJob = Omit<
-  BaseJob,
-  "description" | "email" | "sessionId"
-> & {
+export type PreviewJob = Omit<BaseJob, "email" | "sessionId"> & {
   publicationDate: string;
   _id: string | null;
 };
