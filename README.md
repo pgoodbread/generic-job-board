@@ -5,18 +5,21 @@
 Run docker mongo
 `$ docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongo -e MONGO_INITDB_ROOT_PASSWORD=mongo mongo`
 
-## Most Important Things
+## Unternehmen angeschrieben
 
-- Stripe Check wie kostenlos machen? R
-
-- Text an Companies (Englisch) P
+- [Tudock](https://www.tudock.de/) P
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 ## Schritte bis Validierung
 
+- Logo als Stripe Checkout
+- Bilder kaputt Remoteok
+- Example Text in Form input
+
 EPIC: Form überarbeiten R
 
+- Mobile Checkout Button
 - beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
 - preis auf button
 - button sticky (desktop - wie mobile?)
@@ -24,14 +27,11 @@ EPIC: Form überarbeiten R
 
 - Google Search Console integrieren P+R
 - Lighthouse P+R
-
-- angucken: tags generator (default tag react)
 - next-SEO (siehe Repo)
-- Deployment 3: Scraper-Job
-- S3 requests nur wenn image
 
 ## Schritte bis Launch 🚀
 
+- Deployment 3: Scraper-Job
 - Job Offer bearbeiten können?
 - Create Header Component
 - Google fonts sind slow
@@ -40,6 +40,7 @@ EPIC: Form überarbeiten R
 
 ## After Launch
 
+- S3 requests nur wenn image
 - stripe webhook für payment succeded
 - Automatisierte Tests
 - Suche
