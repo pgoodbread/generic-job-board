@@ -11,6 +11,7 @@ Run docker mongo
 - [Ratbacher](https://www.ratbacher.de/) P 07.12.21
 - [Academic Works](https://www.academicwork.de/) P 07.12.21
 - [hmmh](https://www.hmmh.de/) P 07.12.21
+- [Procuros](https://procuros.io/) P 07.12.21
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
