@@ -7,19 +7,23 @@ Run docker mongo
 
 ## Unternehmen angeschrieben
 
-- [Tudock](https://www.tudock.de/) P
+- [Tudock](https://www.tudock.de/) P 06.12.21
+- [Ratbacher](https://www.ratbacher.de/) P 07.12.21
+- [Academic Works](https://www.academicwork.de/) P 07.12.21
+- [hmmh](https://www.hmmh.de/) P 07.12.21
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 ## Schritte bis Launch 🚀
 
 EPIC: Form überarbeiten R
-  - Example Text in Form input
-  - Mobile Checkout Button
-  - beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
-  - preis auf button
-  - button sticky (desktop - wie mobile?)
-  - Preview auf Mobile oben, weil sonst von Tastatur verdeckt
+
+- Example Text in Form input
+- Mobile Checkout Button
+- beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
+- preis auf button
+- button sticky (desktop - wie mobile?)
+- Preview auf Mobile oben, weil sonst von Tastatur verdeckt
 
 - Bilder kaputt Remoteok
 - newsletter input zu wenig width
