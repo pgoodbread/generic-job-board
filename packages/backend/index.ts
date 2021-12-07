@@ -82,15 +82,17 @@ const taglist = [
 ];
 
 function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
+  const tagList = taglist
+    .filter((tag) => remoteIOItem.description.toLowerCase().includes(tag))
+    .slice(0, 3);
+
   return {
     originalId: remoteIOItem.guid + "",
     title: remoteIOItem.title,
     description: remoteIOItem.description,
     company: "",
     publicationDate: new Date(remoteIOItem.pubDate).toISOString(),
-    tags: taglist
-      .filter((tag) => remoteIOItem.description.toLowerCase().includes(tag))
-      .slice(0, 3),
+    tags: taglist.length ? tagList : ["react", "javascript"],
     location: "Worldwide",
     link: remoteIOItem.link,
     image: null,
@@ -98,15 +100,17 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
 }
 
 function mapIndeed(indeedItem: IndeedItem): Job {
+  const tagList = taglist
+    .filter((tag) => indeedItem.description.toLowerCase().includes(tag))
+    .slice(0, 3);
+
   return {
     originalId: indeedItem.guid + "",
     title: indeedItem.title.split(" -")[0],
     description: indeedItem.description,
     company: indeedItem.source,
     publicationDate: new Date(indeedItem.pubDate).toISOString(),
-    tags: taglist
-      .filter((tag) => indeedItem.description.toLowerCase().includes(tag))
-      .slice(0, 3),
+    tags: taglist.length ? tagList : ["react", "javascript"],
     location: getLocation(indeedItem),
     link: indeedItem.link.replace(/&amp;/g, "&"),
     image: null,
