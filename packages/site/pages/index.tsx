@@ -86,7 +86,7 @@ export async function getStaticProps() {
             $gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
           },
         },
-        { projection: { sessionId: 0, email: 0, description: 0 } }
+        { projection: { sessionId: 0, email: 0 } }
       )
       .sort({ publicationDate: -1 })
       .limit(50)
