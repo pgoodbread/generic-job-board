@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Stripe from "stripe";
+import FeedbackWidget from "../../components/FeedbackWidget";
 import Header from "../../components/Header";
 
 export default function CheckoutResult() {
@@ -31,6 +32,7 @@ export default function CheckoutResult() {
 
   return (
     <div>
+      <FeedbackWidget></FeedbackWidget>
       <Header>
         <div
           style={{

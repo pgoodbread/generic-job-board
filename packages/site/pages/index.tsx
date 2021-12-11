@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import FeedbackWidget from "../components/FeedbackWidget";
 import Header from "../components/Header";
 import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
@@ -12,6 +13,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
+      <FeedbackWidget></FeedbackWidget>
       <Header>
         <div
           style={{

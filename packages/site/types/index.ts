@@ -38,3 +38,5 @@ export type JobForForm = Omit<
   tags: string;
   image: File;
 };
+
+export type WithClassname<T> = T & { className?: string };

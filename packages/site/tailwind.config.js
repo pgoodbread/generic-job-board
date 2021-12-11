@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         primary: "rgba(8,126,164, 0.8)",
       },
+      margin: {
+        17: "4.25rem",
+      },
     },
   },
   variants: {

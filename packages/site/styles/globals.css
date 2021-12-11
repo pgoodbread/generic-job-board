@@ -8,4 +8,5 @@
 
 .MuiButton-root {
   z-index: 1;
+  box-shadow: rgb(8 126 164) 0px 0px 1px 0.1rem !important;
 }

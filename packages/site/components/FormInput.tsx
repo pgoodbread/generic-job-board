@@ -33,8 +33,14 @@ export default function FormInput({
           className="block text-sm font-medium text-gray-700 w-full tracking-wide"
         >
           <div className="flex justify-between">
-            <span className="capitalize">{label ? label : name}</span>{" "}
-            {hint && <span className="text-gray-400 font-normal">{hint}</span>}
+            <span className="capitalize whitespace-nowrap">
+              {label ? label : name}
+            </span>{" "}
+            {hint && (
+              <span className="text-gray-400 font-normal whitespace-nowrap">
+                {hint}
+              </span>
+            )}
           </div>
         </label>
       </div>
