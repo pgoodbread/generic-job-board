@@ -6,8 +6,6 @@ export default function FormInput({
   className,
   label,
   placeholder,
-  hint,
-  optional,
   nullable,
   value,
   handlers,
@@ -36,32 +34,27 @@ export default function FormInput({
             <span className="capitalize whitespace-nowrap">
               {label ? label : name}
             </span>{" "}
-            {hint && (
-              <span className="text-gray-400 font-normal whitespace-nowrap">
-                {hint}
-              </span>
-            )}
           </div>
         </label>
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
-        {name === "fee" && (
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span className="text-gray-500 sm:text-sm">€</span>
-          </div>
-        )}
         {nullable ? (
           <input
             type={type}
             name={name}
             className={inputStyle}
-            placeholder={placeholder && ""}
+            placeholder={placeholder}
             value={value === null ? "" : (value as unknown as number)}
             onChange={handlers?.handleChange}
             onBlur={handlers?.handleBlur}
           />
         ) : (
-          <Field className={inputStyle} type={type} name={name} />
+          <Field
+            className={inputStyle}
+            type={type}
+            name={name}
+            placeholder={placeholder}
+          />
         )}
       </div>
       <ErrorMessage className="text-red-600" name={name} component="div" />

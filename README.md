@@ -17,17 +17,6 @@ Run docker mongo
 
 ## Schritte bis Launch 🚀
 
-EPIC: Form überarbeiten R
-
-- Example Text in Form input?
-
-- Mobile Checkout Button
-- button sticky (desktop - wie mobile?)
-- Preview auf Mobile oben, weil sonst von Tastatur verdeckt
-- payment options besseres bild
-
-
-
 - Bilder kaputt Remoteok
 - newsletter input zu wenig width
 - Deployment 3: Scraper-Job

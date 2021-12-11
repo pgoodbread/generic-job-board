@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header";
 import JobForm from "../../components/JobForm";
-import JobInfo from "../../components/JobInfo";
+import JobInfo from "../../components/JobInfoSection";
+import JobInfoText from "../../components/JobInfoText";
 
 const CreateJob = () => {
   const plausible = usePlausible();
@@ -39,7 +40,9 @@ const CreateJob = () => {
           </p>
         </div>
       </Header>
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
+        <JobInfoText className="lg:hidden"></JobInfoText>
+
         <JobForm
           className="flex-1"
           onSubmit={async (values) => {
