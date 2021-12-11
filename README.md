@@ -19,12 +19,14 @@ Run docker mongo
 
 EPIC: Form überarbeiten R
 
-- Example Text in Form input
+- Example Text in Form input?
+
 - Mobile Checkout Button
-- beim submitten des jobs rechts bezahlmethoden und vielleicht testimonials anzeigen
-- preis auf button
 - button sticky (desktop - wie mobile?)
 - Preview auf Mobile oben, weil sonst von Tastatur verdeckt
+- payment options besseres bild
+
+
 
 - Bilder kaputt Remoteok
 - newsletter input zu wenig width

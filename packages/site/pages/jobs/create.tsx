@@ -1,47 +1,48 @@
 import type aws from "aws-sdk";
-import type { InferGetStaticPropsType, NextPage } from "next";
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/Header";
 import JobForm from "../../components/JobForm";
+import JobInfo from "../../components/JobInfo";
 
-const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
-  ({}: InferGetStaticPropsType<typeof getStaticProps>) => {
-    const plausible = usePlausible();
+const CreateJob = () => {
+  const plausible = usePlausible();
 
-    return (
-      <div className="mb-4">
-        <Header>
-          <div className="flex flex-col items-center border-b pb-4">
-            <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
-              <Link href="/">
-                <a>Reactjobs</a>
-              </Link>
-            </h1>
-            <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">
-              The React{" "}
-              <div className="inline-block mx-2">
-                <Image
-                  src="/react-jobs-logo.png"
-                  alt="React-Jobs Logo"
-                  height="40"
-                  width="40"
-                />{" "}
-              </div>
-              <span></span>
-              Job Board
-            </h2>
-            <p className=" text-xl text-gray-500 text-center mt-3">
-              Connecting the{" "}
-              <span className="text-gray-700 font-bold">best jobs </span>
-              with top{" "}
-              <span className="text-primary font-bold">React Developers</span>
-            </p>
-          </div>
-        </Header>
+  return (
+    <div className="">
+      <Header>
+        <div className="flex flex-col items-center border-b pb-4">
+          <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
+            <Link href="/">
+              <a>Reactjobs</a>
+            </Link>
+          </h1>
+          <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">
+            The React{" "}
+            <div className="inline-block mx-2">
+              <Image
+                src="/react-jobs-logo.png"
+                alt="React-Jobs Logo"
+                height="40"
+                width="40"
+              />{" "}
+            </div>
+            <span></span>
+            Job Board
+          </h2>
+          <p className=" text-xl text-gray-500 text-center mt-3">
+            Connecting the{" "}
+            <span className="text-gray-700 font-bold">best jobs </span>
+            with top{" "}
+            <span className="text-primary font-bold">React Developers</span>
+          </p>
+        </div>
+      </Header>
+      <div className="flex">
         <JobForm
-          onSubmit={async (values, { setSubmitting }) => {
+          className="flex-1"
+          onSubmit={async (values) => {
             plausible("Checkout");
             //s3 prefetch
             const { url, fields }: aws.S3.PresignedPost = await fetch(
@@ -77,14 +78,11 @@ const CreateJob: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
             window.location = sessionUrl;
           }}
         />
+
+        <JobInfo></JobInfo>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default CreateJob;
-
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}

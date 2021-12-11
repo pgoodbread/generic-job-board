@@ -11,6 +11,8 @@ export default function FormInput({
   nullable,
   value,
   handlers,
+  onFocus = () => {},
+  onBlur = () => {},
 }: {
   name: string;
   type: string;
@@ -21,6 +23,8 @@ export default function FormInput({
   optional?: boolean;
   nullable?: boolean;
   value?: number | null | "";
+  onFocus?: () => void;
+  onBlur?: () => void;
   handlers?: Pick<FormikHandlers, "handleBlur" | "handleChange">;
 }) {
   const inputStyle = `focus:ring-primary focus:border-primary block w-full pl-3 text-sm border-gray-300 rounded-md`;
@@ -33,8 +37,14 @@ export default function FormInput({
           className="block text-sm font-medium text-gray-700 w-full tracking-wide"
         >
           <div className="flex justify-between">
-            <span className="capitalize">{label ? label : name}</span>{" "}
-            {hint && <span className="text-gray-400 font-normal">{hint}</span>}
+            <span className="capitalize whitespace-nowrap">
+              {label ? label : name}
+            </span>{" "}
+            {hint && (
+              <span className="text-gray-400 font-normal whitespace-nowrap">
+                {hint}
+              </span>
+            )}
           </div>
         </label>
       </div>
@@ -55,7 +65,13 @@ export default function FormInput({
             onBlur={handlers?.handleBlur}
           />
         ) : (
-          <Field className={inputStyle} type={type} name={name} />
+          <Field
+            className={inputStyle}
+            type={type}
+            name={name}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
         )}
       </div>
       <ErrorMessage className="text-red-600" name={name} component="div" />
