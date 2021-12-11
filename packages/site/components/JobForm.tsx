@@ -37,41 +37,35 @@ export default function JobForm({
         validationSchema={JobValidation}
         onSubmit={onSubmit}
       >
-        {({
-          isSubmitting,
-          handleBlur,
-          handleChange,
-          values,
-          setFieldValue,
-        }) => (
+        {({ isSubmitting, setFieldValue }) => (
           <Form className="flex flex-col justify-center">
             <div className="lg:px-24 py-4 px-4">
               <FormInput
                 name="title"
                 label="Job Title"
-                hint="Example: 'Senior React Developer'"
+                placeholder="Example: 'Senior React Developer'"
                 type="text"
               />
               <FormInput
                 name="company"
                 type="text"
-                hint="Example: 'Apple', 'Microsoft'"
+                placeholder="Example: 'Apple', 'Microsoft'"
               />
               <FormInput
                 name="location"
                 type="text"
-                hint="Example: 'Remote', 'USA', 'Europe'"
+                placeholder="Example: 'Remote', 'USA', 'Europe'"
               />
               <FormInput
                 name="tags"
                 type="text"
-                hint="Comma-separated - maximum of 3 Tags"
+                placeholder="Comma-separated - maximum of 3 Tags"
               />
               <FormInput
                 name="link"
                 label="Job Posting URL"
                 type="url"
-                hint="Example: 'https://company.com/'"
+                placeholder="Example: 'https://company.com/jobs/123'"
               />
               <div className="">
                 <div className="flex justify-between w-full mb-2 text-sm">

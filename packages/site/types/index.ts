@@ -39,4 +39,4 @@ export type JobForForm = Omit<
   image: File;
 };
 
-export type WithClassname<T> = T & { className?: string };
+export type WithClassname<T = {}> = T & { className?: string };
