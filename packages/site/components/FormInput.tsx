@@ -11,8 +11,6 @@ export default function FormInput({
   nullable,
   value,
   handlers,
-  onFocus = () => {},
-  onBlur = () => {},
 }: {
   name: string;
   type: string;
@@ -23,8 +21,6 @@ export default function FormInput({
   optional?: boolean;
   nullable?: boolean;
   value?: number | null | "";
-  onFocus?: () => void;
-  onBlur?: () => void;
   handlers?: Pick<FormikHandlers, "handleBlur" | "handleChange">;
 }) {
   const inputStyle = `focus:ring-primary focus:border-primary block w-full pl-3 text-sm border-gray-300 rounded-md`;
@@ -65,13 +61,7 @@ export default function FormInput({
             onBlur={handlers?.handleBlur}
           />
         ) : (
-          <Field
-            className={inputStyle}
-            type={type}
-            name={name}
-            onFocus={onFocus}
-            onBlur={onBlur}
-          />
+          <Field className={inputStyle} type={type} name={name} />
         )}
       </div>
       <ErrorMessage className="text-red-600" name={name} component="div" />
