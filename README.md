@@ -13,6 +13,12 @@ Run docker mongo
 - [hmmh](https://www.hmmh.de/) P 07.12.21
 - [Procuros](https://procuros.io/) P 07.12.21
 
+- [Squareball](https://squareball.co/) R 11.12.21
+- [Infoleven](https://infoleven.com/) R 11.12.21
+- [tinloof](https://tinloof.com/) R 11.12.21
+- [Makers Den](https://makersden.io/) R 11.12.21
+- [Simplabs](https://simplabs.com/) R 11.12.21
+
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 ## Schritte bis Launch 🚀
