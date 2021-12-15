@@ -9,7 +9,7 @@ Run docker mongo
 
 - [Tudock](https://www.tudock.de/) P 06.12.21
 - [Ratbacher](https://www.ratbacher.de/) P 07.12.21
-- [Academic Works](https://www.academicwork.de/) P 07.12.21
+- [Academic Works](https://www.academicwork.de/) P 07.12.21 Absage
 - [hmmh](https://www.hmmh.de/) P 07.12.21
 - [Procuros](https://procuros.io/) P 07.12.21
 
@@ -24,6 +24,10 @@ Run docker mongo
 ## Schritte bis Launch 🚀
 
 - Bilder kaputt Remoteok
+- &amp im Titel
+- keine neuen Job Posts
+- Rand von Sidebar auf Jobform bis unten
+- Footer nicht anzeigen auf Jobform
 - newsletter input zu wenig width
 - Deployment 3: Scraper-Job
 - Create Header Component
