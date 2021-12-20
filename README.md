@@ -24,6 +24,8 @@ Run docker mongo
 - [strivals](https://www.strivals.com/) R 20.12.21
 - [codete](https://codete.com/) R 20.12.21
 - [cshark](https://cshark.com/) R 20.12.21
+- [hyperlink infosystem](https://www.hyperlinkinfosystem.com/) R 20.12.21
+- [Inpsyde](https://inpsyde.com/) R 20.12.21
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
