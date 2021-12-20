@@ -19,6 +19,12 @@ Run docker mongo
 - [Makers Den](https://makersden.io/) R 11.12.21
 - [Simplabs](https://simplabs.com/) R 11.12.21
 
+- [future processing](https://www.future-processing.com/) R 20.12.21
+- [groovy](groovyweb.co) R 20.12.21
+- [strivals](https://www.strivals.com/) R 20.12.21
+- [codete](https://codete.com/) R 20.12.21
+- [cshark](https://cshark.com/) R 20.12.21
+
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 ## Schritte bis Launch 🚀
