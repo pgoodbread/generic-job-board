@@ -95,9 +95,9 @@ export async function getStaticProps() {
       .toArray();
 
     return {
+      revalidate: 10,
       props: {
         jobs: jobs.map((job) => ({ ...job, _id: job._id!.toString() })),
-        revalidate: 10,
       },
     };
   } finally {
