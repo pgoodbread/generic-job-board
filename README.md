@@ -33,8 +33,6 @@ Run docker mongo
 
 - Bilder kaputt Remoteok
 - &amp im Titel
-- keine neuen Job Posts
-- Rand von Sidebar auf Jobform bis unten
 - Footer nicht anzeigen auf Jobform
 - newsletter input zu wenig width
 - Deployment 3: Scraper-Job

@@ -2,8 +2,8 @@ import JobInfoText from "./JobInfoText";
 
 export default function JobInfo() {
   return (
-    <section className="w-1/3 flex-col items-center lg:flex hidden">
-      <div className="text-lg border-b border-l w-full leading-relaxed py-8 text-center px-6">
+    <section className="w-1/3 flex-col items-center hidden border-1 border-l lg:flex">
+      <div className="text-lg border-b w-full leading-relaxed py-8 text-center px-6">
         <p>React Jobs is the place where the </p>
         <p>
           <span className="text-primary font-bold">best react engineers</span>
@@ -12,7 +12,7 @@ export default function JobInfo() {
       </div>
       <JobInfoText></JobInfoText>
 
-      <div className="text-lg border-b border-l w-full leading-relaxed py-8 text-center px-6 flex flex-col items-center">
+      <div className="text-lg border-b w-full leading-relaxed py-8 text-center px-6 flex flex-col items-center">
         Pay with
         <div className="flex space-x-4 mt-4">
           <svg
