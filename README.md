@@ -33,7 +33,6 @@ Run docker mongo
 
 - Bilder kaputt Remoteok
 - &amp im Titel
-- Footer nicht anzeigen auf Jobform
 - newsletter input zu wenig width
 - Deployment 3: Scraper-Job
 - Create Header Component

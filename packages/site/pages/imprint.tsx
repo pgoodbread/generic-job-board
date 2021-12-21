@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackWidget from "../components/FeedbackWidget";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function Imprint() {
@@ -147,6 +148,7 @@ export default function Imprint() {
           </span>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

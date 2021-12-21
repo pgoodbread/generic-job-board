@@ -11,7 +11,7 @@ const CreateJob = () => {
   const plausible = usePlausible();
 
   return (
-    <div className="mt-24 lg:mt-0">
+    <div className="mt-24 lg:mt-0 mb-20 lg:mb-32">
       <Header>
         <div className="flex flex-col items-center border-b pb-4">
           <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">

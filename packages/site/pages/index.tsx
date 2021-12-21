@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackWidget from "../components/FeedbackWidget";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
@@ -66,6 +67,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <section className="flex my-2 flex-col max-w-4xl mx-auto md:my-0">
         <JobBoard jobs={jobs}></JobBoard>
       </section>
+      <Footer></Footer>
     </div>
   );
 };
