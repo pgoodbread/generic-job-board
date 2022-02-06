@@ -29,24 +29,24 @@ Run docker mongo
 
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
-## Schritte bis Launch 🚀
-
-- Bilder kaputt Remoteok
-- &amp im Titel
-- newsletter input zu wenig width
-- Deployment 3: Scraper-Job
-- Create Header Component
-
-## After Launch
-
+# Now
+- scraper
+- seo
+  - Kategorieseiten?
+- suche
 - Aufklappen eines Listings mit mehr Infos (bedeutet auch Anpassungen beim Erstellen eines Listings)
-- Suche
-- Kategorieseiten?
+
+- tag komponente
+
+# Later
 - automatisches tweeten, newsletter und das beim kauf eines Listings deutlich machen
 - Job Offer bearbeiten können?
+
+- Create Header Component
+- &amp im Titel
+- Deployment 3: Scraper-Job
 - feedback component in post a job
 - S3 requests nur wenn image
 - stripe webhook für payment succeded
 - Automatisierte Tests
-- tag komponente
 - Alte jobs löschen
