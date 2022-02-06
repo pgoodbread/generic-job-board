@@ -69,7 +69,7 @@ export default function Newsletter({
               />
               <div className="relative flex flex-col rounded-lg lg:flex-row">
                 <Field
-                  className="px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+                  className="px-2 w-60 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
                   type="email"
                   name="email"
                   placeholder="Enter your email"

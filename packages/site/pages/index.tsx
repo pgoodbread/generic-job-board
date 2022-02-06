@@ -2,16 +2,29 @@ import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import FeedbackWidget from "../components/FeedbackWidget";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import JobBoard from "../components/JobBoard";
 import Newsletter from "../components/Newsletter";
+import Searchbar from "../components/Searchbar";
 import type { PreviewJob } from "../types";
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   jobs,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [filteredJobs, setFilteredJobs] = useState(jobs);
+
+  // const setJobs = useCallback((newJobs: PreviewJob[]) => {
+  //   if() {
+  //     setFilteredJobs(jobs);
+  //   } else {
+  //     setFilteredJobs(newJobs);
+  //   }
+
+  // }))
+
   return (
     <div>
       <FeedbackWidget></FeedbackWidget>
@@ -65,7 +78,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       </Header>
 
       <section className="flex my-2 flex-col max-w-4xl mx-auto md:my-0">
-        <JobBoard jobs={jobs}></JobBoard>
+        <Searchbar originalJobs={jobs} setJobs={setFilteredJobs}></Searchbar>
+        <JobBoard jobs={filteredJobs}></JobBoard>
       </section>
       <Footer></Footer>
     </div>
