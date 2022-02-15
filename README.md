@@ -53,7 +53,10 @@ Run docker mongo
 
 # Competition
 
-[ReactJS Jobs](https://reactjsjob.com/)
+[ReactJS Jobs (multiple boards)](https://reactjsjob.com/)
 [React Jobs Board](https://reactjobsboard.com/)
+[Reactjobboard.com (multiple boards)](https://www.reactjobboard.com/)
 [react Jobs](https://www.react-jobs.com/)
+[reactjobs.us](https://reactjobs.us/)
+[reactjobs.net](https://reactjobs.net/)
 [reactjobs (not launched)](https://reactjobs.io/)
