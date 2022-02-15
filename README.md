@@ -50,3 +50,10 @@ Run docker mongo
 - stripe webhook für payment succeded
 - Automatisierte Tests
 - Alte jobs löschen
+
+# Competition
+
+[ReactJS Jobs](https://reactjsjob.com/)
+[React Jobs Board](https://reactjobsboard.com/)
+[react Jobs](https://www.react-jobs.com/)
+[reactjobs (not launched)](https://reactjobs.io/)
