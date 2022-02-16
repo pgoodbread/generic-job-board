@@ -123,10 +123,17 @@ export default function JobListing({
           datePosted={job.publicationDate}
           description={job.description}
           hiringOrganization={{
-            name: job.company,
+            name: job.company ?? "AnyComp",
             sameAs: "",
           }}
           title={job.title}
+          jobLocation={{
+            streetAddress: "Anywhere",
+            addressLocality: "Anywhere",
+            addressRegion: "Anywhere",
+            postalCode: "Anywhere",
+            addressCountry: "Anywhere",
+          }}
           employmentType="FULL_TIME"
           validThrough={getDayjs(job.publicationDate)
             .add(30, "day")

@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackWidget from "../components/FeedbackWidget";
@@ -7,6 +8,7 @@ import Header from "../components/Header";
 export default function Imprint() {
   return (
     <>
+      <NextSeo noindex={true} />
       <FeedbackWidget></FeedbackWidget>
       <Header>
         <div className="flex flex-col items-center border-b pb-4">

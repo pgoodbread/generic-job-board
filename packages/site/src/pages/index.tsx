@@ -1,6 +1,5 @@
 import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
-import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackWidget from "../components/FeedbackWidget";
