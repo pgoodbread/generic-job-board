@@ -3,7 +3,7 @@ import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Modal from "react-modal";
 import Layout from "../components/Layout";
-import SEO from "../next-seo.config";
+import SEO from "../../next-seo.config";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {

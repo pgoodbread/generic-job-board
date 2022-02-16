@@ -5,11 +5,11 @@ const SEO: NextSeoProps = {
   titleTemplate: "React Jobs | %s",
   defaultTitle: "React Jobs",
   description:
-    "Looking for a remote job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
+    "Looking for a react job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
   openGraph: {
     title: "React Jobs",
     description:
-      "Looking for a remote job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
+      "Looking for a react job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
     url: "https://react-jobs.io",
     type: "website",
     images: [

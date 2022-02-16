@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ErrorMessage, Form, Formik, useFormikContext } from "formik";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useState } from "react";
-import FormInput from "../components/FormInput";
+import FormInput from "./FormInput";
 import { JobValidation } from "../lib/validation";
 import type {
   FormProps,
