@@ -25,7 +25,7 @@ export default async function handleStripeCheckout(
     ],
     mode: "payment",
     success_url: `${req.headers.origin}/checkout/result?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${req.headers.origin}/jobs/create`,
+    cancel_url: `${req.headers.origin}/hire-react-developers`,
     allow_promotion_codes: true,
   });
 

@@ -22,7 +22,7 @@ const CreateJob = () => {
         <div className="flex flex-col items-center border-b pb-4">
           <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
             <Link href="/">
-              <a>Reactjobs</a>
+              <a>React Jobs</a>
             </Link>
           </h1>
           <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">

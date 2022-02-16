@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import type { InferGetStaticPropsType, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import FeedbackWidget from "../components/FeedbackWidget";
@@ -25,7 +26,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           className="pb-2 md:pb-[230px]"
         >
           <div className="flex justify-end p-2 md:px-6 ">
-            <Link href="/jobs/create">
+            <Link href="/hire-react-developers">
               <a className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
                 Post a Job
               </a>
@@ -34,7 +35,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <div className="flex flex-col items-center">
             <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
               <Link href="/">
-                <a>Reactjobs</a>
+                <a>React Jobs</a>
               </Link>
             </h1>
             <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">

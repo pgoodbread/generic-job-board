@@ -43,7 +43,7 @@ export default function CheckoutResult() {
           className="pb-2 mb-8 md:mb-4"
         >
           <div className="flex justify-end p-2 md:px-6 ">
-            <Link href="/jobs/create">
+            <Link href="/hire-react-developers">
               <a
                 onClick={() => plausible("Multiple-Job-Posts")}
                 className="px-4 py-2 font-medium tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
@@ -55,7 +55,7 @@ export default function CheckoutResult() {
           <div className="flex flex-col items-center">
             <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8 md:mt-2">
               <Link href="/">
-                <a>Reactjobs</a>
+                <a>React Jobs</a>
               </Link>
             </h1>
             <h2 className="flex justify-center text-3xl font-bold text-gray-700 mt-4">
@@ -101,7 +101,7 @@ export default function CheckoutResult() {
               Thank you for your order with{" "}
               <Link href="/">
                 <a className="text-primary font-bold hover:underline">
-                  Reactjobs
+                  React Jobs
                 </a>
               </Link>
               ! 🙏

@@ -17,7 +17,7 @@ export default async function handleFeedback(
     await sendgrid.send({
       from: process.env.EMAIL_ACCOUNT!,
       to: process.env.EMAIL_ACCOUNT!,
-      subject: "⚛️ Reactjobs - " + type,
+      subject: "⚛️ React Jobs - " + type,
       text: feedback,
     });
   } catch (error: any) {

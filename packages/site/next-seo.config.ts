@@ -2,7 +2,7 @@ import { NextSeoProps } from "next-seo";
 
 const SEO: NextSeoProps = {
   canonical: "https://react-jobs.io",
-  titleTemplate: "React Jobs | %s",
+  titleTemplate: "%s | React Jobs",
   defaultTitle: "React Jobs",
   description:
     "Looking for a react job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
