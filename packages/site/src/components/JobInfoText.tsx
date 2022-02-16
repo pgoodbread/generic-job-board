@@ -5,7 +5,7 @@ export default function JobInfoText({ className }: WithClassname) {
   return (
     <div
       className={clsx(
-        "text-xl border-b w-full leading-relaxed py-8 px-6",
+        "text-xl border-b w-full leading-relaxed p-4 lg:py-8 lg:px-6",
         className
       )}
     >
