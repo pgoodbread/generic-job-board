@@ -1,6 +1,7 @@
 import parser from "fast-xml-parser";
 import { MongoClient } from "mongodb";
 import fetch from "node-fetch";
+import puppeteer from "puppeteer";
 import wc from "which-country";
 
 require("dotenv").config();
@@ -23,18 +24,7 @@ type Job = {
   location: string;
   link: string;
   image: string | null;
-};
-
-type RemoteOkItem = {
-  title: string;
-  company: string;
-  description: string;
-  tags: string;
-  location: string;
-  pubDate: string;
-  guid: number;
-  link: string;
-  image: string;
+  payRange: string | null;
 };
 
 type IndeedItem = {
@@ -96,6 +86,7 @@ function mapRemoteIO(remoteIOItem: RemoteIOItem): Job {
     location: "Worldwide",
     link: remoteIOItem.link,
     image: null,
+    payRange: null,
   };
 }
 
@@ -114,6 +105,7 @@ function mapIndeed(indeedItem: IndeedItem): Job {
     location: getLocation(indeedItem),
     link: indeedItem.link.replace(/&amp;/g, "&"),
     image: null,
+    payRange: null,
   };
 }
 
@@ -123,20 +115,6 @@ function getLocation(indeedItem: IndeedItem): string {
   }
 
   return wc(indeedItem["georss:point"].split(" ").map(Number).reverse());
-}
-
-function mapRemoteOk(remoteOkItem: RemoteOkItem): Job {
-  return {
-    originalId: remoteOkItem.guid + "",
-    title: remoteOkItem.title,
-    description: remoteOkItem.description,
-    company: remoteOkItem.company,
-    publicationDate: new Date(remoteOkItem.pubDate).toISOString(),
-    tags: remoteOkItem.tags.split(","),
-    location: remoteOkItem.location,
-    link: remoteOkItem.link.toLowerCase(),
-    image: remoteOkItem.image.toLowerCase(),
-  };
 }
 
 async function run() {
@@ -160,11 +138,39 @@ async function handleRemoteIO() {
 }
 
 async function handleRemoteOk() {
-  const rssResponse = await fetchRSS<RemoteOkItem>(
-    "https://remoteok.com/remote-react-jobs.rss"
-  );
+  const browser = await puppeteer.launch();
 
-  const jobs: Job[] = rssResponse.rss.channel.item.map(mapRemoteOk);
+  const scraper = await browser.newPage();
+  await scraper.goto("https://remoteok.com/remote-react-jobs");
+
+  const jobs: Job[] = await scraper.evaluate(() => {
+    return Array.from(document.querySelectorAll(".job")).map((x) => {
+      return {
+        company: x.querySelector("[itemprop=name]")?.innerHTML.trim()!,
+        title: x.querySelector("[itemprop=title]")?.innerHTML.trim()!,
+        originalId: x.getAttribute("data-id")!,
+        image: x.querySelector(".logo")?.getAttribute("data-src")!,
+        location: x.querySelector(".location")?.innerHTML.includes("💰")
+          ? "Worlwide"
+          : x
+              .querySelector(".location")
+              ?.innerHTML.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, "")
+              .trim()!,
+        tags: Array.from(x.querySelectorAll(".tags h3")).map((x) =>
+          x.innerHTML.trim()
+        ),
+        publicationDate: x.querySelector("time")?.getAttribute("datetime")!,
+        description:
+          x.nextElementSibling?.querySelector(".markdown")?.innerHTML!,
+        payRange: x.querySelector(".location")?.innerHTML.includes("💰")
+          ? x.querySelector(".location")?.innerHTML!
+          : x.querySelectorAll(".location")[1]?.innerHTML.includes("💰")
+          ? x.querySelectorAll(".location")[1]?.innerHTML!
+          : null,
+        link: x.querySelector<HTMLLinkElement>(".source > a")?.href || "",
+      };
+    });
+  });
 
   await saveJobs(jobs);
 }
