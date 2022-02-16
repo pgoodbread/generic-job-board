@@ -121,7 +121,9 @@ export default function JobListing({
         <JobPostingJsonLd
           keyOverride={job._id!}
           datePosted={job.publicationDate}
-          description={job.description.replaceAll('"', "'")}
+          description={job.description
+            .replace(/'"'/g, "'")
+            .replace(/<[^>]*>?/gm, "")}
           hiringOrganization={{
             name: job.company ?? "AnyComp",
             sameAs: "",
