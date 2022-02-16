@@ -2,14 +2,14 @@ import { NextSeoProps } from "next-seo";
 
 const SEO: NextSeoProps = {
   canonical: "https://react-jobs.io",
-  titleTemplate: "Reactjobs | %s",
-  defaultTitle: "Reactjobs",
+  titleTemplate: "React Jobs | %s",
+  defaultTitle: "React Jobs",
   description:
-    "Looking for a React Job? ReactJobs connects the best React Jobs with top React Developer talent.",
+    "Looking for a remote job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
   openGraph: {
-    title: "Reactjobs",
+    title: "React Jobs",
     description:
-      "Looking for a React Job? ReactJobs connects the best React Jobs with top React Developer talent.",
+      "Looking for a remote job? React Jobs is a React Job Board and has 1,000+ react jobs with JavaScript, TypeScript, NextJS, Ruby, Python and more! Find a career where you can work with React.",
     url: "https://react-jobs.io",
     type: "website",
     images: [
