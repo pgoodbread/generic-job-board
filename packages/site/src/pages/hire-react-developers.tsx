@@ -2,16 +2,22 @@ import type aws from "aws-sdk";
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../../components/Header";
-import JobForm from "../../components/JobForm";
-import JobInfo from "../../components/JobInfoSection";
-import JobInfoText from "../../components/JobInfoText";
+import Header from "../components/Header";
+import JobForm from "../components/JobForm";
+import JobInfo from "../components/JobInfoSection";
+import JobInfoText from "../components/JobInfoText";
+import { NextSeo } from "next-seo";
 
 const CreateJob = () => {
   const plausible = usePlausible();
 
   return (
     <div className="mt-24 lg:mt-0 mb-20 lg:mb-32">
+      <NextSeo
+        title="Hire React Developers"
+        description="Hire the best react developer talent in the world on React Jobs and reach millions of applicants."
+        canonical="https://react-jobs.io/hire-react-developers"
+      />
       <Header>
         <div className="flex flex-col items-center border-b pb-4">
           <h1 className="text-primary text-5xl font-bold text-center font-poppins mt-8">
