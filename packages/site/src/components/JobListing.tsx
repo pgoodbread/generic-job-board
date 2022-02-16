@@ -141,6 +141,11 @@ export default function JobListing({
           validThrough={getDayjs(job.publicationDate)
             .add(30, "day")
             .toISOString()}
+          baseSalary={{
+            currency: "USD",
+            value: [0, 100000],
+            unitText: "YEAR",
+          }}
         />
       )}
     </>
