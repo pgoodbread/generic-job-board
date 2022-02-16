@@ -59,12 +59,12 @@ export default function JobListing({
           )}
         </div>
         <div className="flex flex-col flex-grow min-w-0 overflow-hidden w-full">
-          <p className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">
+          <h2 className="text-small lg:text-lg font-bold text-gray-700 leading-tight lg:leading-normal ">
             {job.title}
-          </p>
-          <p className="text-xs lg:text-base leading-tight text-primary">
+          </h2>
+          <h3 className="text-xs lg:text-base leading-tight text-primary">
             {job.company}
-          </p>
+          </h3>
           <p className="flex items-center text-xxs lg:text-xs text-gray-500 mt-1 capitalize">
             <span>
               <svg
