@@ -30,6 +30,7 @@ Run docker mongo
 **Ziel: Unternehmen anschreiben ab 6.12.** (ca. 5 pro Woche, ansonsten Form etc. für Launch vorbereiten)
 
 # Now
+
 - scraper
 - seo
   - Kategorieseiten?
@@ -38,7 +39,10 @@ Run docker mongo
 
 - tag komponente
 
+- Backlinks durch Github collections (Readmes)
+
 # Later
+
 - automatisches tweeten, newsletter und das beim kauf eines Listings deutlich machen
 - Job Offer bearbeiten können?
 
