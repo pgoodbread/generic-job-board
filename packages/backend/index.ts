@@ -172,6 +172,8 @@ async function handleRemoteOk() {
     });
   });
 
+  await browser.close();
+
   await saveJobs(jobs);
 }
 
