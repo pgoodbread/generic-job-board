@@ -199,6 +199,10 @@ async function fetchRSS<T>(url: string): Promise<RssResponse<T>> {
 }
 
 async function saveJobs(jobs: Job[]) {
+  if (!jobs.length) {
+    return;
+  }
+
   const client = new MongoClient(process.env.MONGO_URI);
 
   try {
