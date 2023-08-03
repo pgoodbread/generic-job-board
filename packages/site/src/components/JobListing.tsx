@@ -91,7 +91,7 @@ export default function JobListing({
             {job.location}
           </p>
           <div className="flex space-x-2 mt-1 lg:hidden">
-            {job.tags.map((tag, index) => (
+            {job.tags.slice(0, 3).map((tag, index) => (
               <Tag key={index} first={index === 0}>
                 {tag}
               </Tag>
@@ -100,7 +100,7 @@ export default function JobListing({
         </div>
 
         <div className="flex-1 space-x-2 hidden items-center lg:flex">
-          {job.tags.map((tag, index) => (
+          {job.tags.slice(0, 3).map((tag, index) => (
             <Tag key={index} first={index === 0}>
               {tag}
             </Tag>
@@ -121,10 +121,12 @@ export default function JobListing({
         <JobPostingJsonLd
           keyOverride={job._id!}
           datePosted={job.publicationDate}
-          description={job.description
-            .replace(/"/g, "'")
-            .replace(/&lt;/g, "<")
-            .replace(/<[^>]*>?/gm, "")}
+          description={
+            job.description
+              ?.replace(/"/g, "'")
+              .replace(/&lt;/g, "<")
+              .replace(/<[^>]*>?/gm, "") ?? ""
+          }
           hiringOrganization={{
             name: job.company ?? "AnyComp",
             sameAs: "",

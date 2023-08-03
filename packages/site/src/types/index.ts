@@ -3,7 +3,7 @@ import { FormikHelpers } from "formik";
 export type Job = {
   _id: string;
   title: string;
-  description: string;
+  description?: string;
   company: string;
   publicationDate: string | null;
   tags: string[];
