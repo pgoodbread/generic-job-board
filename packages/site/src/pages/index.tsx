@@ -87,7 +87,6 @@ export async function getStaticProps() {
         {
           publicationDate: {
             $ne: null,
-            $gt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
           },
         },
         { projection: { sessionId: 0, email: 0 } }
